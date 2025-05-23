@@ -1,0 +1,41 @@
+@prefix ex: <http://example.org/french-legal#> .
+@prefix lkif: <http://www.estrellaproject.org/lkif-core/norm.owl#> .
+@prefix expr: <http://www.estrellaproject.org/lkif-core/expression.owl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+
+# Individual
+ex:AssembleeNationale rdf:type lkif:Legislative_Body ;
+    rdfs:label "Assemblée Nationale"@fr ;
+    lkif:member ex:NadegeAbomangoli ;
+    lkif:actor_in ex:Loi2000_516 ;
+    lkif:utterer ex:LegislativeFunction ;
+    lkif:plays ex:LegislativeRole .
+
+# Supporting Individuals
+ex:NadegeAbomangoli rdf:type lkif:Person .
+ex:Loi2000_516 rdf:type lkif:Act_of_Law .
+ex:LegislativeFunction rdf:type expr:Mental_Entity .
+ex:LegislativeRole rdf:type lkif:Organisation_Role .
+
+ex:CodeCivil rdf:type lkif:Code ;
+    rdfs:label "Code Civil"@fr ;
+    lkif:bears ex:Article9_1_CodeCivil .
+
+ex:Article9_1_CodeCivil rdf:type lkif:Obligative_Right ;*
+    rdf:type lkif:Potestative_Expression ;
+    rdfs:label "Article 9-1 du Code Civil"@fr ;
+    rdfs:comment "Chacun a droit au respect de la présomption d'innocence. \n \n Lorsqu’une personne est, avant toute condamnation, présentée publiquement comme coupable de faits faisant l’objet d’une enquête ou d’une instruction judiciaire, le juge peut, même en référé, sans préjudice de la réparation du dommage subi, prescrire toutes mesures, telles que l’insertion d’une rectification ou la diffusion d’un communiqué, aux fins de faire cesser l’atteinte à la présomption d’innocence, et ce aux frais de la personne, physique ou morale, responsable de cette atteinte."@fr ;
+    lkif:stated_by ex:Loi2000_516 ;
+    lkif:utterer ex:AssembleeNationale ;
+    lkif:medium ex:CodeCivil ;
+    lkif:attitude ? (created_by some Public_Act) ;
+    lkif:qualifies ex:PresumptionOfInnocence . # (some Normatively_Qualified)
+
+ex:LegislativeRole rdf:type lkif:Organisation_Role ;
+    rdfs:label "Rôle législatif"@fr ;
+    rdfs:comment "Rôle joué par une personne ou un groupe dans le processus législatif."@fr .
+    lkif:context ex:AssembleeNationale ;
+    lkif:imposed_on ?.
+

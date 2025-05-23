@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<catalog prefer="public" xmlns="urn:oasis:names:tc:entity:xmlns:xml:catalog">
+    <group id="Folder Repository, directory=, recursive=true, Auto-Update=true, version=2" prefer="public" xml:base="">
+        <uri id="Automatically generated entry, Timestamp=1747999109060" name="http://www.estrellaproject.org/lkif-core/action.owl" uri="action.owl"/>
+        <uri id="Automatically generated entry, Timestamp=1747999109060" name="http://www.estrellaproject.org/lkif-core/expression.owl" uri="expression.owl"/>
+        <uri id="Automatically generated entry, Timestamp=1747999109060" name="http://www.estrellaproject.org/lkif-core/legal-action.owl" uri="legal-action.owl"/>
+        <uri id="Automatically generated entry, Timestamp=1747999109060" name="http://www.estrellaproject.org/lkif-core/legal-role.owl" uri="legal-role.owl"/>
+        <uri id="Automatically generated entry, Timestamp=1747999109060" name="http://www.estrellaproject.org/lkif-core/lkif-core.owl" uri="lkif-core.owl"/>
+        <uri id="Automatically generated entry, Timestamp=1747999109060" name="http://www.estrellaproject.org/lkif-core/lkif-extended.owl" uri="lkif-extended.owl"/>
+        <uri id="Automatically generated entry, Timestamp=1747999109060" name="http://www.estrellaproject.org/lkif-core/lkif-rules.owl" uri="lkif-rules.owl"/>
+        <uri id="Automatically generated entry, Timestamp=1747999109060" name="http://www.estrellaproject.org/lkif-core/lkif-top.owl" uri="lkif-top.owl"/>
+        <uri id="Automatically generated entry, Timestamp=1747999109060" name="http://www.estrellaproject.org/lkif-core/mereology.owl" uri="mereology.owl"/>
+        <uri id="Automatically generated entry, Timestamp=1747999109060" name="http://www.estrellaproject.org/lkif-core/norm.owl" uri="norm.owl"/>
+        <uri id="Automatically generated entry, Timestamp=1747999109060" name="http://www.estrellaproject.org/lkif-core/process.owl" uri="process.owl"/>
+        <uri id="Automatically generated entry, Timestamp=1747999109060" name="http://www.estrellaproject.org/lkif-core/relative-places.owl" uri="relative-places.owl"/>
+        <uri id="Automatically generated entry, Timestamp=1747999109060" name="http://www.estrellaproject.org/lkif-core/role.owl" uri="role.owl"/>
+        <uri id="Automatically generated entry, Timestamp=1747999109060" name="http://www.estrellaproject.org/lkif-core/time-modification.owl" uri="time-modification.owl"/>
+        <uri id="Automatically generated entry, Timestamp=1747999109060" name="http://www.estrellaproject.org/lkif-core/time.owl" uri="time.owl"/>
+    </group>
+</catalog>

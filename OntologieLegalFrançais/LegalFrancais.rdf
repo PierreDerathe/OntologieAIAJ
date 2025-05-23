@@ -1,0 +1,689 @@
+<?xml version="1.0"?>
+<rdf:RDF xmlns="http://www.semanticweb.org/pierre/ontologies/2025/4/LegalFrancais/"
+     xml:base="http://www.semanticweb.org/pierre/ontologies/2025/4/LegalFrancais/"
+     xmlns:owl="http://www.w3.org/2002/07/owl#"
+     xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+     xmlns:xml="http://www.w3.org/XML/1998/namespace"
+     xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
+     xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
+     xmlns:LegalFrancais="http://www.semanticweb.org/pierre/ontologies/2025/4/LegalFrancais#">
+    <owl:Ontology rdf:about="http://www.semanticweb.org/pierre/ontologies/2025/4/LegalFrancais">
+        <rdfs:comment>Une ontologie du domaine légal français.</rdfs:comment>
+    </owl:Ontology>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Object Properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://www.semanticweb.org/pierre/ontologies/2025/4/LegalFrancais#ProprieteNormative -->
+
+    <owl:ObjectProperty rdf:about="http://www.semanticweb.org/pierre/ontologies/2025/4/LegalFrancais#ProprieteNormative">
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#AsymmetricProperty"/>
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/pierre/ontologies/2025/4/LegalFrancais#Norme"/>
+        <rdfs:range rdf:resource="http://www.semanticweb.org/pierre/ontologies/2025/4/LegalFrancais#Norme"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/pierre/ontologies/2025/4/LegalFrancais#aEtatNormatif -->
+
+    <owl:ObjectProperty rdf:about="http://www.semanticweb.org/pierre/ontologies/2025/4/LegalFrancais#aEtatNormatif">
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/pierre/ontologies/2025/4/LegalFrancais#Norme"/>
+        <rdfs:range rdf:resource="http://www.semanticweb.org/pierre/ontologies/2025/4/LegalFrancais#EtatNormatif"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/pierre/ontologies/2025/4/LegalFrancais#abroge -->
+
+    <owl:ObjectProperty rdf:about="http://www.semanticweb.org/pierre/ontologies/2025/4/LegalFrancais#abroge">
+        <rdfs:subPropertyOf rdf:resource="http://www.semanticweb.org/pierre/ontologies/2025/4/LegalFrancais#ProprieteNormative"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/pierre/ontologies/2025/4/LegalFrancais#abrogéPar -->
+
+    <owl:ObjectProperty rdf:about="http://www.semanticweb.org/pierre/ontologies/2025/4/LegalFrancais#abrogéPar">
+        <rdfs:subPropertyOf rdf:resource="http://www.semanticweb.org/pierre/ontologies/2025/4/LegalFrancais#ProprieteNormative"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/pierre/ontologies/2025/4/LegalFrancais#appartientAuBloc -->
+
+    <owl:ObjectProperty rdf:about="http://www.semanticweb.org/pierre/ontologies/2025/4/LegalFrancais#appartientAuBloc">
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/pierre/ontologies/2025/4/LegalFrancais#Norme"/>
+        <rdfs:range rdf:resource="http://www.semanticweb.org/pierre/ontologies/2025/4/LegalFrancais#BlocNormatif"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/pierre/ontologies/2025/4/LegalFrancais#cite -->
+
+    <owl:ObjectProperty rdf:about="http://www.semanticweb.org/pierre/ontologies/2025/4/LegalFrancais#cite">
+        <rdfs:subPropertyOf rdf:resource="http://www.semanticweb.org/pierre/ontologies/2025/4/LegalFrancais#ProprieteNormative"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/pierre/ontologies/2025/4/LegalFrancais#citéPar -->
+
+    <owl:ObjectProperty rdf:about="http://www.semanticweb.org/pierre/ontologies/2025/4/LegalFrancais#citéPar">
+        <rdfs:subPropertyOf rdf:resource="http://www.semanticweb.org/pierre/ontologies/2025/4/LegalFrancais#ProprieteNormative"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/pierre/ontologies/2025/4/LegalFrancais#codifie -->
+
+    <owl:ObjectProperty rdf:about="http://www.semanticweb.org/pierre/ontologies/2025/4/LegalFrancais#codifie">
+        <rdfs:subPropertyOf rdf:resource="http://www.semanticweb.org/pierre/ontologies/2025/4/LegalFrancais#ProprieteNormative"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/pierre/ontologies/2025/4/LegalFrancais#codifiéPar -->
+
+    <owl:ObjectProperty rdf:about="http://www.semanticweb.org/pierre/ontologies/2025/4/LegalFrancais#codifiéPar">
+        <rdfs:subPropertyOf rdf:resource="http://www.semanticweb.org/pierre/ontologies/2025/4/LegalFrancais#ProprieteNormative"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/pierre/ontologies/2025/4/LegalFrancais#contient -->
+
+    <owl:ObjectProperty rdf:about="http://www.semanticweb.org/pierre/ontologies/2025/4/LegalFrancais#contient">
+        <owl:inverseOf rdf:resource="http://www.semanticweb.org/pierre/ontologies/2025/4/LegalFrancais#estContenuDans"/>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#TransitiveProperty"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/pierre/ontologies/2025/4/LegalFrancais#crée -->
+
+    <owl:ObjectProperty rdf:about="http://www.semanticweb.org/pierre/ontologies/2025/4/LegalFrancais#crée">
+        <rdfs:subPropertyOf rdf:resource="http://www.semanticweb.org/pierre/ontologies/2025/4/LegalFrancais#ProprieteNormative"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/pierre/ontologies/2025/4/LegalFrancais#crééPar -->
+
+    <owl:ObjectProperty rdf:about="http://www.semanticweb.org/pierre/ontologies/2025/4/LegalFrancais#crééPar">
+        <rdfs:subPropertyOf rdf:resource="http://www.semanticweb.org/pierre/ontologies/2025/4/LegalFrancais#ProprieteNormative"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/pierre/ontologies/2025/4/LegalFrancais#documentContient -->
+
+    <owl:ObjectProperty rdf:about="http://www.semanticweb.org/pierre/ontologies/2025/4/LegalFrancais#documentContient">
+        <rdfs:subPropertyOf rdf:resource="http://www.semanticweb.org/pierre/ontologies/2025/4/LegalFrancais#contient"/>
+        <owl:inverseOf rdf:resource="http://www.semanticweb.org/pierre/ontologies/2025/4/LegalFrancais#estContenuDansDocument"/>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#InverseFunctionalProperty"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/pierre/ontologies/2025/4/LegalFrancais#estContenuDans -->
+
+    <owl:ObjectProperty rdf:about="http://www.semanticweb.org/pierre/ontologies/2025/4/LegalFrancais#estContenuDans">
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#TransitiveProperty"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/pierre/ontologies/2025/4/LegalFrancais#estContenuDansDocument -->
+
+    <owl:ObjectProperty rdf:about="http://www.semanticweb.org/pierre/ontologies/2025/4/LegalFrancais#estContenuDansDocument">
+        <rdfs:subPropertyOf rdf:resource="http://www.semanticweb.org/pierre/ontologies/2025/4/LegalFrancais#estContenuDans"/>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/pierre/ontologies/2025/4/LegalFrancais#UnitéStructurelle"/>
+        <rdfs:range rdf:resource="http://www.semanticweb.org/pierre/ontologies/2025/4/LegalFrancais#DocumentJuridique"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/pierre/ontologies/2025/4/LegalFrancais#estContenuDansUnite -->
+
+    <owl:ObjectProperty rdf:about="http://www.semanticweb.org/pierre/ontologies/2025/4/LegalFrancais#estContenuDansUnite">
+        <rdfs:subPropertyOf rdf:resource="http://www.semanticweb.org/pierre/ontologies/2025/4/LegalFrancais#estContenuDans"/>
+        <owl:inverseOf rdf:resource="http://www.semanticweb.org/pierre/ontologies/2025/4/LegalFrancais#uniteContient"/>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#TransitiveProperty"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/pierre/ontologies/2025/4/LegalFrancais#estContenuDansUniteDirect -->
+
+    <owl:ObjectProperty rdf:about="http://www.semanticweb.org/pierre/ontologies/2025/4/LegalFrancais#estContenuDansUniteDirect">
+        <rdfs:subPropertyOf rdf:resource="http://www.semanticweb.org/pierre/ontologies/2025/4/LegalFrancais#estContenuDansUnite"/>
+        <owl:inverseOf rdf:resource="http://www.semanticweb.org/pierre/ontologies/2025/4/LegalFrancais#uniteContientDirect"/>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/pierre/ontologies/2025/4/LegalFrancais#estNormeInferieurA -->
+
+    <owl:ObjectProperty rdf:about="http://www.semanticweb.org/pierre/ontologies/2025/4/LegalFrancais#estNormeInferieurA">
+        <owl:inverseOf rdf:resource="http://www.semanticweb.org/pierre/ontologies/2025/4/LegalFrancais#estNormeSuperieurA"/>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#TransitiveProperty"/>
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/pierre/ontologies/2025/4/LegalFrancais#BlocNormatif"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/pierre/ontologies/2025/4/LegalFrancais#estNormeSuperieurA -->
+
+    <owl:ObjectProperty rdf:about="http://www.semanticweb.org/pierre/ontologies/2025/4/LegalFrancais#estNormeSuperieurA">
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#TransitiveProperty"/>
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/pierre/ontologies/2025/4/LegalFrancais#BlocNormatif"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/pierre/ontologies/2025/4/LegalFrancais#modifie -->
+
+    <owl:ObjectProperty rdf:about="http://www.semanticweb.org/pierre/ontologies/2025/4/LegalFrancais#modifie">
+        <rdfs:subPropertyOf rdf:resource="http://www.semanticweb.org/pierre/ontologies/2025/4/LegalFrancais#ProprieteNormative"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/pierre/ontologies/2025/4/LegalFrancais#modifiéPar -->
+
+    <owl:ObjectProperty rdf:about="http://www.semanticweb.org/pierre/ontologies/2025/4/LegalFrancais#modifiéPar">
+        <rdfs:subPropertyOf rdf:resource="http://www.semanticweb.org/pierre/ontologies/2025/4/LegalFrancais#ProprieteNormative"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/pierre/ontologies/2025/4/LegalFrancais#precedent -->
+
+    <owl:ObjectProperty rdf:about="http://www.semanticweb.org/pierre/ontologies/2025/4/LegalFrancais#precedent">
+        <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2002/07/owl#topObjectProperty"/>
+        <owl:inverseOf rdf:resource="http://www.semanticweb.org/pierre/ontologies/2025/4/LegalFrancais#suivant"/>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#InverseFunctionalProperty"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/pierre/ontologies/2025/4/LegalFrancais#suivant -->
+
+    <owl:ObjectProperty rdf:about="http://www.semanticweb.org/pierre/ontologies/2025/4/LegalFrancais#suivant">
+        <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2002/07/owl#topObjectProperty"/>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#InverseFunctionalProperty"/>
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/pierre/ontologies/2025/4/LegalFrancais#UnitéStructurelle"/>
+        <rdfs:range rdf:resource="http://www.semanticweb.org/pierre/ontologies/2025/4/LegalFrancais#UnitéStructurelle"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/pierre/ontologies/2025/4/LegalFrancais#uniteContient -->
+
+    <owl:ObjectProperty rdf:about="http://www.semanticweb.org/pierre/ontologies/2025/4/LegalFrancais#uniteContient">
+        <rdfs:subPropertyOf rdf:resource="http://www.semanticweb.org/pierre/ontologies/2025/4/LegalFrancais#contient"/>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#TransitiveProperty"/>
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/pierre/ontologies/2025/4/LegalFrancais#UnitéStructurelle"/>
+        <rdfs:range rdf:resource="http://www.semanticweb.org/pierre/ontologies/2025/4/LegalFrancais#UnitéStructurelle"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/pierre/ontologies/2025/4/LegalFrancais#uniteContientDirect -->
+
+    <owl:ObjectProperty rdf:about="http://www.semanticweb.org/pierre/ontologies/2025/4/LegalFrancais#uniteContientDirect">
+        <rdfs:subPropertyOf rdf:resource="http://www.semanticweb.org/pierre/ontologies/2025/4/LegalFrancais#uniteContient"/>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#InverseFunctionalProperty"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/pierre/ontologies/2025/4/LegalFrancais#versionPrecedente -->
+
+    <owl:ObjectProperty rdf:about="http://www.semanticweb.org/pierre/ontologies/2025/4/LegalFrancais#versionPrecedente">
+        <owl:inverseOf rdf:resource="http://www.semanticweb.org/pierre/ontologies/2025/4/LegalFrancais#versionSuivante"/>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#InverseFunctionalProperty"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/pierre/ontologies/2025/4/LegalFrancais#versionSuivante -->
+
+    <owl:ObjectProperty rdf:about="http://www.semanticweb.org/pierre/ontologies/2025/4/LegalFrancais#versionSuivante">
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#InverseFunctionalProperty"/>
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/pierre/ontologies/2025/4/LegalFrancais#Article"/>
+        <rdfs:range rdf:resource="http://www.semanticweb.org/pierre/ontologies/2025/4/LegalFrancais#Article"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Data properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://www.semanticweb.org/pierre/ontologies/2025/4/LegalFrancais#dateDebut -->
+
+    <owl:DatatypeProperty rdf:about="http://www.semanticweb.org/pierre/ontologies/2025/4/LegalFrancais#dateDebut">
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/pierre/ontologies/2025/4/LegalFrancais#Norme"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#dateTime"/>
+        <rdfs:comment>Date d’entrée en vigueur</rdfs:comment>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/pierre/ontologies/2025/4/LegalFrancais#dateFin -->
+
+    <owl:DatatypeProperty rdf:about="http://www.semanticweb.org/pierre/ontologies/2025/4/LegalFrancais#dateFin">
+        <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2002/07/owl#topDataProperty"/>
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/pierre/ontologies/2025/4/LegalFrancais#Norme"/>
+        <rdfs:comment>Date d’abrogation ou de fin de validité</rdfs:comment>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/pierre/ontologies/2025/4/LegalFrancais#numero -->
+
+    <owl:DatatypeProperty rdf:about="http://www.semanticweb.org/pierre/ontologies/2025/4/LegalFrancais#numero">
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/pierre/ontologies/2025/4/LegalFrancais#Article"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+        <rdfs:comment>Numéro d’article seul (ex : &quot;223-9&quot;)</rdfs:comment>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/pierre/ontologies/2025/4/LegalFrancais#reference -->
+
+    <owl:DatatypeProperty rdf:about="http://www.semanticweb.org/pierre/ontologies/2025/4/LegalFrancais#reference">
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/pierre/ontologies/2025/4/LegalFrancais#EntitéJuridique"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+        <rdfs:comment>Ex. &quot;Code pénal, Article 223-9&quot; – concaténation du nom + numéro</rdfs:comment>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/pierre/ontologies/2025/4/LegalFrancais#url -->
+
+    <owl:DatatypeProperty rdf:about="http://www.semanticweb.org/pierre/ontologies/2025/4/LegalFrancais#url">
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/pierre/ontologies/2025/4/LegalFrancais#EntitéJuridique"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#anyURI"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.w3.org/2002/07/owl#topDataProperty -->
+
+    <rdf:Description rdf:about="http://www.w3.org/2002/07/owl#topDataProperty">
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#dateTime"/>
+    </rdf:Description>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Classes
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://www.semanticweb.org/pierre/ontologies/2025/4/LegalFrancais#Arrêté -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/pierre/ontologies/2025/4/LegalFrancais#Arrêté">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/pierre/ontologies/2025/4/LegalFrancais#DocumentJuridique"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/pierre/ontologies/2025/4/LegalFrancais#Article -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/pierre/ontologies/2025/4/LegalFrancais#Article">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/pierre/ontologies/2025/4/LegalFrancais#Norme"/>
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/pierre/ontologies/2025/4/LegalFrancais#UnitéStructurelle"/>
+        <rdfs:comment>- Type: classe concrète multi-typée
+- Description: Représente une unité élémentaire normative.
+  L’article est à la fois :
+ * Une structure d’un texte juridique (sous une hiérarchie formelle),
+ * Et une norme à part entière pouvant être modifiée, abrogée, codifiée, etc.
+
+- Remarque : Très important à typer à la fois comme UnitéStructurelle et Norme.</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/pierre/ontologies/2025/4/LegalFrancais#BlocNormatif -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/pierre/ontologies/2025/4/LegalFrancais#BlocNormatif">
+        <owl:equivalentClass>
+            <owl:Class>
+                <owl:oneOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="http://www.semanticweb.org/pierre/ontologies/2025/4/LegalFrancais#ActesAdministratifs"/>
+                    <rdf:Description rdf:about="http://www.semanticweb.org/pierre/ontologies/2025/4/LegalFrancais#BlocConstitutionalite"/>
+                    <rdf:Description rdf:about="http://www.semanticweb.org/pierre/ontologies/2025/4/LegalFrancais#BlocConventionnalite"/>
+                    <rdf:Description rdf:about="http://www.semanticweb.org/pierre/ontologies/2025/4/LegalFrancais#BlocLegalite"/>
+                    <rdf:Description rdf:about="http://www.semanticweb.org/pierre/ontologies/2025/4/LegalFrancais#BlocReglementaire"/>
+                    <rdf:Description rdf:about="http://www.semanticweb.org/pierre/ontologies/2025/4/LegalFrancais#PrincipeGenerauxEtJurisprudence"/>
+                </owl:oneOf>
+            </owl:Class>
+        </owl:equivalentClass>
+        <rdfs:comment>- Type : classe de catégorisation normative (par instances)
+- Description : Représente un bloc de la hiérarchie des normes(bloc de constitutionnalité, bloc de légalité, etc.).
+- Instances typiques : BlocConstitutionnalite, BlocConventionnalite, BlocLegalite
+- Usage: Permet de classer chaque Norme dans un bloc via une propriété comme appartientAuBloc.</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/pierre/ontologies/2025/4/LegalFrancais#Chapitre -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/pierre/ontologies/2025/4/LegalFrancais#Chapitre">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/pierre/ontologies/2025/4/LegalFrancais#UnitéStructurelle"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/pierre/ontologies/2025/4/LegalFrancais#Circulaire -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/pierre/ontologies/2025/4/LegalFrancais#Circulaire">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/pierre/ontologies/2025/4/LegalFrancais#DocumentJuridique"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/pierre/ontologies/2025/4/LegalFrancais#Code -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/pierre/ontologies/2025/4/LegalFrancais#Code">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/pierre/ontologies/2025/4/LegalFrancais#DocumentJuridique"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/pierre/ontologies/2025/4/LegalFrancais#Constitution -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/pierre/ontologies/2025/4/LegalFrancais#Constitution">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/pierre/ontologies/2025/4/LegalFrancais#DocumentJuridique"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/pierre/ontologies/2025/4/LegalFrancais#DocumentJuridique -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/pierre/ontologies/2025/4/LegalFrancais#DocumentJuridique">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/pierre/ontologies/2025/4/LegalFrancais#Norme"/>
+        <rdfs:comment>- Type: classe concrète
+- Description: Représente un document juridique complet (loi, décret, ordonnance, circulaire, etc.).
+- Usage: Catégorise les différents types de sources de droit formalisées et publiées.
+- Sous-classes possibles: Loi, Décret, Ordonnance, Code, Instruction, etc.</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/pierre/ontologies/2025/4/LegalFrancais#Décret -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/pierre/ontologies/2025/4/LegalFrancais#Décret">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/pierre/ontologies/2025/4/LegalFrancais#DocumentJuridique"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/pierre/ontologies/2025/4/LegalFrancais#EntitéJuridique -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/pierre/ontologies/2025/4/LegalFrancais#EntitéJuridique">
+        <rdfs:comment>- Type : classe abstraite
+- Description: Surclasse générique des entités juridiques, structurantes ou normatives, pour centraliser des propriétés communes comme: label, url, etc.
+- Remarque: C’est une classe technique/conceptuelle, utile pour la factorisation ontologique.</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/pierre/ontologies/2025/4/LegalFrancais#EtatNormatif -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/pierre/ontologies/2025/4/LegalFrancais#EtatNormatif">
+        <owl:equivalentClass>
+            <owl:Class>
+                <owl:oneOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="http://www.semanticweb.org/pierre/ontologies/2025/4/LegalFrancais#ABROGE"/>
+                    <rdf:Description rdf:about="http://www.semanticweb.org/pierre/ontologies/2025/4/LegalFrancais#EN_VIGUEUR"/>
+                </owl:oneOf>
+            </owl:Class>
+        </owl:equivalentClass>
+        <rdfs:comment>- Type: classe énumérative (type fermé de statuts)
+- Description: Représente l’état juridique d’une norme à un instant donné.
+- Instances typiques: EN_VIGUEUR, ABROGE.
+- Usage: Attribut de toute Norme via une data/object property aEtatNormatif. Possibilité future de géré la temporalité.</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/pierre/ontologies/2025/4/LegalFrancais#Instruction -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/pierre/ontologies/2025/4/LegalFrancais#Instruction">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/pierre/ontologies/2025/4/LegalFrancais#DocumentJuridique"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/pierre/ontologies/2025/4/LegalFrancais#Livre -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/pierre/ontologies/2025/4/LegalFrancais#Livre">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/pierre/ontologies/2025/4/LegalFrancais#UnitéStructurelle"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/pierre/ontologies/2025/4/LegalFrancais#Loi -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/pierre/ontologies/2025/4/LegalFrancais#Loi">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/pierre/ontologies/2025/4/LegalFrancais#DocumentJuridique"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/pierre/ontologies/2025/4/LegalFrancais#LoiOrganique -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/pierre/ontologies/2025/4/LegalFrancais#LoiOrganique">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/pierre/ontologies/2025/4/LegalFrancais#Loi"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/pierre/ontologies/2025/4/LegalFrancais#Norme -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/pierre/ontologies/2025/4/LegalFrancais#Norme">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/pierre/ontologies/2025/4/LegalFrancais#EntitéJuridique"/>
+        <rdfs:comment>- Type: classe intermédiaire de contenu normatif
+- Description: Représente toute entité qui porte une norme juridique, que ce soit un Article ou un `DocumentJuridique.
+- Objectif: Regrouper les entités ayant des relations normatives (modifie, abroge, codifie, etc.).
+- Exemples d’individus: un article de loi, un décret, une ordonnance.</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/pierre/ontologies/2025/4/LegalFrancais#Ordonnance -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/pierre/ontologies/2025/4/LegalFrancais#Ordonnance">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/pierre/ontologies/2025/4/LegalFrancais#DocumentJuridique"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/pierre/ontologies/2025/4/LegalFrancais#Paragraphe -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/pierre/ontologies/2025/4/LegalFrancais#Paragraphe">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/pierre/ontologies/2025/4/LegalFrancais#UnitéStructurelle"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/pierre/ontologies/2025/4/LegalFrancais#Section -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/pierre/ontologies/2025/4/LegalFrancais#Section">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/pierre/ontologies/2025/4/LegalFrancais#UnitéStructurelle"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/pierre/ontologies/2025/4/LegalFrancais#SousSection -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/pierre/ontologies/2025/4/LegalFrancais#SousSection">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/pierre/ontologies/2025/4/LegalFrancais#UnitéStructurelle"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/pierre/ontologies/2025/4/LegalFrancais#Titre -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/pierre/ontologies/2025/4/LegalFrancais#Titre">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/pierre/ontologies/2025/4/LegalFrancais#UnitéStructurelle"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/pierre/ontologies/2025/4/LegalFrancais#UnitéStructurelle -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/pierre/ontologies/2025/4/LegalFrancais#UnitéStructurelle">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/pierre/ontologies/2025/4/LegalFrancais#EntitéJuridique"/>
+        <rdfs:comment>- Type : classe formelle de structure documentaire
+- Description : Représente la structure hiérarchique interne d’un texte juridique : Livre, Chapitre, Section, Article, etc.
+- Usage : Permet de naviguer la structure logique des codes et textes consolidés (relations contient, estContenuDans, etc.).</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Individuals
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://www.semanticweb.org/pierre/ontologies/2025/4/LegalFrancais#ABROGE -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/pierre/ontologies/2025/4/LegalFrancais#ABROGE">
+        <rdf:type rdf:resource="http://www.semanticweb.org/pierre/ontologies/2025/4/LegalFrancais#EtatNormatif"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/pierre/ontologies/2025/4/LegalFrancais#ActesAdministratifs -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/pierre/ontologies/2025/4/LegalFrancais#ActesAdministratifs">
+        <rdf:type rdf:resource="http://www.semanticweb.org/pierre/ontologies/2025/4/LegalFrancais#BlocNormatif"/>
+        <LegalFrancais:estNormeInferieurA rdf:resource="http://www.semanticweb.org/pierre/ontologies/2025/4/LegalFrancais#BlocReglementaire"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/pierre/ontologies/2025/4/LegalFrancais#BlocConstitutionalite -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/pierre/ontologies/2025/4/LegalFrancais#BlocConstitutionalite">
+        <LegalFrancais:estNormeSuperieurA rdf:resource="http://www.semanticweb.org/pierre/ontologies/2025/4/LegalFrancais#BlocConventionnalite"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/pierre/ontologies/2025/4/LegalFrancais#BlocConventionnalite -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/pierre/ontologies/2025/4/LegalFrancais#BlocConventionnalite">
+        <LegalFrancais:estNormeSuperieurA rdf:resource="http://www.semanticweb.org/pierre/ontologies/2025/4/LegalFrancais#BlocLegalite"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/pierre/ontologies/2025/4/LegalFrancais#BlocLegalite -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/pierre/ontologies/2025/4/LegalFrancais#BlocLegalite"/>
+    
+
+
+    <!-- http://www.semanticweb.org/pierre/ontologies/2025/4/LegalFrancais#BlocReglementaire -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/pierre/ontologies/2025/4/LegalFrancais#BlocReglementaire">
+        <LegalFrancais:estNormeInferieurA rdf:resource="http://www.semanticweb.org/pierre/ontologies/2025/4/LegalFrancais#PrincipeGenerauxEtJurisprudence"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/pierre/ontologies/2025/4/LegalFrancais#EN_VIGUEUR -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/pierre/ontologies/2025/4/LegalFrancais#EN_VIGUEUR"/>
+    
+
+
+    <!-- http://www.semanticweb.org/pierre/ontologies/2025/4/LegalFrancais#PrincipeGenerauxEtJurisprudence -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/pierre/ontologies/2025/4/LegalFrancais#PrincipeGenerauxEtJurisprudence">
+        <LegalFrancais:estNormeInferieurA rdf:resource="http://www.semanticweb.org/pierre/ontologies/2025/4/LegalFrancais#BlocLegalite"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // General axioms
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    <rdf:Description>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#AllDisjointClasses"/>
+        <owl:members rdf:parseType="Collection">
+            <rdf:Description rdf:about="http://www.semanticweb.org/pierre/ontologies/2025/4/LegalFrancais#Arrêté"/>
+            <rdf:Description rdf:about="http://www.semanticweb.org/pierre/ontologies/2025/4/LegalFrancais#Circulaire"/>
+            <rdf:Description rdf:about="http://www.semanticweb.org/pierre/ontologies/2025/4/LegalFrancais#Code"/>
+            <rdf:Description rdf:about="http://www.semanticweb.org/pierre/ontologies/2025/4/LegalFrancais#Constitution"/>
+            <rdf:Description rdf:about="http://www.semanticweb.org/pierre/ontologies/2025/4/LegalFrancais#Décret"/>
+            <rdf:Description rdf:about="http://www.semanticweb.org/pierre/ontologies/2025/4/LegalFrancais#Instruction"/>
+            <rdf:Description rdf:about="http://www.semanticweb.org/pierre/ontologies/2025/4/LegalFrancais#Loi"/>
+            <rdf:Description rdf:about="http://www.semanticweb.org/pierre/ontologies/2025/4/LegalFrancais#Ordonnance"/>
+        </owl:members>
+    </rdf:Description>
+    <rdf:Description>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#AllDisjointClasses"/>
+        <owl:members rdf:parseType="Collection">
+            <rdf:Description rdf:about="http://www.semanticweb.org/pierre/ontologies/2025/4/LegalFrancais#Article"/>
+            <rdf:Description rdf:about="http://www.semanticweb.org/pierre/ontologies/2025/4/LegalFrancais#Chapitre"/>
+            <rdf:Description rdf:about="http://www.semanticweb.org/pierre/ontologies/2025/4/LegalFrancais#Livre"/>
+            <rdf:Description rdf:about="http://www.semanticweb.org/pierre/ontologies/2025/4/LegalFrancais#Paragraphe"/>
+            <rdf:Description rdf:about="http://www.semanticweb.org/pierre/ontologies/2025/4/LegalFrancais#Section"/>
+            <rdf:Description rdf:about="http://www.semanticweb.org/pierre/ontologies/2025/4/LegalFrancais#SousSection"/>
+            <rdf:Description rdf:about="http://www.semanticweb.org/pierre/ontologies/2025/4/LegalFrancais#Titre"/>
+        </owl:members>
+    </rdf:Description>
+</rdf:RDF>
+
+
+
+<!-- Generated by the OWL API (version 4.5.29.2024-05-13T12:11:03Z) https://github.com/owlcs/owlapi -->
+
