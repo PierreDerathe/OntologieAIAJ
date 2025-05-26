@@ -10,13 +10,13 @@ ex:AssembleeNationale rdf:type lkif:Legislative_Body ;
     rdfs:label "Assemblée Nationale"@fr ;
     lkif:member ex:NadegeAbomangoli ;
     lkif:actor_in ex:Loi2000_516 ;
-    lkif:utterer ex:LegislativeFunction ;
+    lkif:utterer ex:Article9_1_CodeCivil ;
     lkif:plays ex:LegislativeRole .
 
 # Supporting Individuals
 ex:NadegeAbomangoli rdf:type lkif:Person .
 ex:Loi2000_516 rdf:type lkif:Act_of_Law .
-ex:LegislativeFunction rdf:type expr:Mental_Entity .
+ex:Article9_1_CodeCivil rdf:type lkif:Expression .
 ex:LegislativeRole rdf:type lkif:Organisation_Role .
 
 ex:CodeCivil rdf:type lkif:Code ;
