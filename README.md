@@ -8,4 +8,8 @@ Une première incomplète est disponible [ici](/OntologieLegalFrançais/Reflexio
 
 ## Instantiation de LKIF Core
 
-L'ontologie est complexe donc pour la comprendre et l'utiliser, une approche bottom-up est choisie, c'est-à-dire créer des instances du domaine légal français pour constater les 
+L'ontologie LKIF Core est complexe donc pour la comprendre et l'utiliser, une approche bottom-up est choisie, c'est-à-dire créer des instances du domaine légal français pour constater comment LKIF Core s'applique à notre cas.
+
+Ce raisonnement est développé [ici](/RaisonnementInstance.md)
+
+Une exploration générale de LKIF Core est développée [ici](/lkif-core/lkif-exploration.md)
