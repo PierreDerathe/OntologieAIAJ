@@ -10,9 +10,9 @@ L'ontologie LKIF est composée d'un ensemble de plus petites ontologies. Ces ont
 ## Niveau supérieur
 
 Dans LKIF, toute ontologie juridique doit reposer sur une base conceptuelle minimale représentant le monde physique, mental, abstrait et les occurences:
-- Entités ayant une existence physique indépendamment de l'observation humaine. A des propriétés spatiaux temporelles.
+- Entités ayant une existence physique indépendamment de l'observation humaine. A des propriétés spatio-temporelles.
 - Éléments de la pensée ou de l’intention humaine avec des propriétés temporelles.
-- Concepts abstraits par exemple logique ou mathématique. Peut utilisé dans notre cas.
+- Concepts abstraits par exemple logique ou mathématique. Peu utilisé dans notre cas.
 - Les occurences permettent de représenter les propriétés spatiales et temporelles nécessaires aux entités.
 
 Les relations méréologiques permettent de définir les ensembles et les parties.
@@ -23,11 +23,11 @@ Pour la représentation spatial, sont proposée les notions de place absolue et 
 
 **Concepts méréologique et spatial**
 
-La notion de temps fait la distinction entre *Moment* (un point dans le temps atomique) et *Interval* (une durée) et propose des relations pour exprimer avant, après, pendant.
+La notion de temps fait la distinction entre *Moment* (un point dans le temps atomique) et *Interval* (une durée) et propose des relations pour exprimer avant, après, pendant...
 
 Ces occurences spatiales et temporelles sont utilisées pour définir les entités physiques et mentales.
 
-Ces concepts sont utilisé pour exprimer le concept de changement comme la différence de situation avant et après le changement, et en particulier la distinction entre *Initiation*, *Continuation* et *Termination*.
+Ces concepts sont utilisés pour exprimer le concept de changement comme la différence de situation avant et après le changement, et en particulier la distinction entre *Initiation*, *Continuation* et *Termination*.
 
 La notion de *Process* comme un changement issue d'une nécessité causal est aussi définit, mais je n'ai pas bien compris le concept.
 
