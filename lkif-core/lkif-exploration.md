@@ -2,11 +2,7 @@
 
 Cette exploration est basée sur [LKIF Core: Principled Ontology Development for the Legal Domain](/lkif-core/LKIF-Core-Principled-Ontology-Development-for-the-Legal-Domain.pdf)
 
-L'ontologie LKIF est composée d'un ensemble de plus petites ontologies. Ces ontologies peuvent être classées en 3 niveaux: Supérieur, Intentionel et Légal. Les ontologie des dernières couches se basent et réutilisent les concepts développés dans les couches supérieurs.
-
-Les couches Top et Intentional définissent des concepts généraux qui sont difficiles à utiliser dans un premier temps. Je préfère me concentrer sur la dernière couche Legal pour constater comment elle s'applique au droit français. Je reviendrait sur ces couches dans un second temps pour utiliser ces concepts plus généraux et pour voir si il est possible d'utiliser cette base.
-
-Je les présente tout de même pour donner une idée de leurs contenus.
+L'ontologie LKIF est composée d'un ensemble de plus petites ontologies. Ces ontologies peuvent être classées en 3 niveaux: Supérieur, Intentionel et Légal. Les ontologies des dernières couches se basent et réutilisent les concepts développés dans les couches supérieurs.
 
 ![Dependencies between LKIF Core modules](/lkif-core/image/dependencies.png "Dependencies between LKIF Core modules")
 **Dependencies between LKIF Core modules**

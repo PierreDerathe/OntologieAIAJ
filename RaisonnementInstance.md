@@ -10,7 +10,7 @@ La création de article implique la création du code civil.
 
 ### Classe du Code Civil: **Code**
 
-Propriété:
+Propriétés:
 - **bears some (Norm and (utterer some Legislative_Body))**
 - **bears only (utterer some Legislative_Body)**
 - **bears some (Legal_Expression or Norm)**
@@ -21,13 +21,13 @@ Propriété:
 
 #### Implication:
 
-Toute partie de code doit être une **Expression** et être communiqué par un **Legislative_Body** (dans le cas français, l'éxecutif  peut faire des lois?).
+Toute partie de code doit être une **Expression** et être communiquée par un **Legislative_Body** (dans le cas français, l'éxecutif  peut faire des lois?).
 
 Une partie de **Code** doit être une **Expression**, une **Norm** ou une **Legal_Expression**?
 
 Est-ce que un article est une **Expression**, un ensemble d'**Expression** ou une partie d'**Expression**? Pour simplifier, je considère que un article est **Expression**.
 
-Nouvelle classe à explorer:
+Nouvelles classes à explorer:
 - **Legislative_Body**
 - **Expression**, **Legal_Expression** et **Norm**
 - **Statement_In_Writing**
@@ -42,7 +42,7 @@ ex:Article9_1_CodeCivil rdf:type lkif:Expression .
 
 ### Classe de l'assemblée nationale: **Legislative_Body**
 
-Propriété:
+Propriétés:
 - **actor_in some/only Action**
 - **participant_in only Change**
 - **member only (Organisation or Person)**
@@ -83,7 +83,7 @@ ex:Depute rdf:type lkif:Organisation_Role .
 
 Explorons **Legal_Expression**.
 
-Propriété:
+Propriétés:
 - **attitude some (created_by some Public_Act)**
 - **held_by some/only Agent**
 - **stated_by some/only Communicated_Attitude**
@@ -107,22 +107,21 @@ Trois classes à utiliser: **Legal_Expression**, **Statement_In_Writing**, **Act
 Or, on a l'article et la loi. Quelle est la troisième classe?
 
 **Première possibilité:**
-- Un article est une **Legal_Expression** appartenant à un code, soit une structure cohérente.
+- Un article est une **Legal_Expression** appartenant à un code.
 - Une loi est un **Statement_In_Writing** qui **states**/déclare des articles. 
-- L'**Act_of_Law** serait pas exemple le fait de voter la loi, ce qui conduit à la **creation** de la loi. Cet acttion demande une date, et un **actor** aurait une croyance, des intentions et des expectations pour cette loi. Ces propriété ont un sens intéréssant mais sont possiblement compliqué à trouver.
+- L'**Act_of_Law** serait par exemple le fait de voter la loi, ce qui conduit à la **creation** de la loi. Cet action demande une date, et un **Agent** aurait une croyance, des intentions et des expectations pour cette loi. Ces propriétés ont un sens intéressant mais sont possiblement compliquées à trouver.
 
 Les problèmes posés sont:
 - un article complexe peut-il être représenté par une **Legal_Expression**?
-- les relations existantes entre une **Statement_In_Writing** et une **Legal_Expression** sont **states**, **asserts**, **declares** et **promises**. Ces relations ne permettent pas d'exprimer de modification, abrogation... Utiliser des relations plus générique pourrait résoudre le problème.
+- les relations existantes entre une **Statement_In_Writing** et une **Legal_Expression** sont **states**, **asserts**, **declares** et **promises**. Ces relations ne permettent pas d'exprimer de modification, abrogation... Utiliser des relations plus génériques pourrait résoudre le problème.
 
 **Deuxième possibilité:**
 - La **Legal_Expression** serait un concept, par exemple: Chacun a droit au respect de la présomption d'innocence.
-- Un article est une **Statement_In_Writing** alors l'appartenance à un **Code** n'est pas bien représenté par la relation **bears**, et un **Code** ne serait que un assenblement de concept juridique.
+- Un article est une **Statement_In_Writing** alors l'appartenance à un **Code** n'est pas bien représentée par la relation **bears**, et un **Code** ne serait que un ensemble de concepts juridiques.
 - Une loi serait un **Act_of_Law**, une action de création, dans notre cas de modification d'article et pas une entité à part entière.
 
-1- La première possibilité respecte mieux la structure du **Code** contenant les articles et 
 
-Je vais dévelloper la première possibilité.
+Je vais développer la première possibilité.
 
 ```ttl
 ex:Article9_1_CodeCivil rdf:type lkif:Legal_Expression ;
@@ -156,10 +155,6 @@ On peut considérer que les 4 premières propriétés ont déjà été pris en c
 
 Une **Legal_Expression** demande que le **Statement_In_Writing** soit créé par un **Public_Act**(**Act_of_Law**).
 
-Les 2 dernières propriétés nous mettent face au problème: LKIF Core est ontologie généraliste de raisonnement juridique, pas une ontologie de représentation de système juridique.
-
-Listes des incohérences:
-- **Statement_In_Writing** est à ne pas confondre avec un document/écrit, cad que c'est l'intention communiqué de l'agent, pas le medium en lui même. Dans notre cas, ce serait l'intention communiqué par l'Assemblé Nationale ce qui étrange.
 - **addressee** désigne le destinataire de la loi. Au niveau de l'article ça pourrait avoir un sens mais pour une loi c'est plus difficile. Le peuple français?
 
 ```ttl

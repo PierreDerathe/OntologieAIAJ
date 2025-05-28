@@ -2,9 +2,9 @@
 
 Travail en cours pour produire une ontologie dans le systême légal français. 
 
-L'ontologie est dévellopé en utilisant [Protégé](http://protege.stanford.edu). Un [petit guide](/Protege.md) est disponible.
+L'ontologie est développé en utilisant [Protégé](http://protege.stanford.edu). Un [petit guide](/Protege.md) est disponible.
 
-Une exploration générale de LKIF Core est développée [ici](/lkif-core/lkif-exploration.md)
+Une exploration générale de LKIF Core est faite [ici](/lkif-core/lkif-exploration.md)
 
 ## Instantiation de LKIF Core
 
