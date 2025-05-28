@@ -19,7 +19,7 @@ Propriété:
 **bears**: A Medium 'bears' or carries expressions.
 **utterer**: Relates an utterance (communicated propositional attitude) to its utterer
 
-**Implication:**
+#### Implication:
 
 Toute partie de code doit être une **Expression** et être communiqué par un **Legislative_Body** (dans le cas français, l'éxecutif  peut faire des lois?).
 
@@ -53,7 +53,7 @@ Propriété:
 
 **actor_in**: Specifies that the participant is an actor in some action.
 
-**Implication:**
+#### Implication:
 
 - **participant_in** est une sous-propriété de **actor_in**.
 - **utterer** est une sous-propriété de **holds**.
@@ -71,11 +71,11 @@ Définir un **Organisation_Role** de député pour les membres de l'Assemblée N
 ex:AssembleeNationale rdf:type lkif:Legislative_Body ;
     rdfs:label "Assemblée Nationale"@fr ;
     lkif:member ex:NadegeAbomangoli ;
-    lkif:actor_in ex:Loi2000_516 ;
+    lkif:actor_in ex:VoteLoi2000_516 ;
     lkif:utterer ex:Article9_1_CodeCivil .
 
 ex:NadegeAbomangoli rdf:type lkif:Person .
-ex:Loi2000_516 rdf:type lkif:Act_of_Law .
+ex:VoteLoi2000_516 rdf:type lkif:Act_of_Law .
 ex:Depute rdf:type lkif:Organisation_Role .
 ```
 
@@ -91,7 +91,7 @@ Propriété:
 
 **stated_by**: Relates a statement to its author
 
-**Implication:**
+#### Implication:
 
 - **stated_by** est une sous-propriété de **attitude**.
 - **created_by** est une sous-propriété de **actor_in**.
@@ -106,32 +106,36 @@ Trois classes à utiliser: **Legal_Expression**, **Statement_In_Writing**, **Act
 
 Or, on a l'article et la loi. Quelle est la troisième classe?
 
-Deux possibilité:
+**Première possibilité:**
 - Un article est une **Legal_Expression** appartenant à un code.
 - Une loi est un **Statement_In_Writing** qui **states**/déclare des articles.
-- L'**Act_of_Law** serait pas exemple le fait de voter la loi, ce qui conduit à la **creation** de la loi.
+- L'**Act_of_Law** serait pas exemple le fait de voter la loi, ce qui conduit à la **creation** de la loi. Cet acttion demande une date, et un **actor** aurait une croyance, des intentions et des expectations pour cette loi. Ces propriété ont un sens intéréssant mais sont possiblement compliqué à trouver.
 
+Les problèmes posés sont:
+- un article complexe peut-il être représenté par une **Legal_Expression**?
+- les relations existantes entre une **Statement_In_Writing** et une **Legal_Expression** sont **states**, **asserts**, **declares** et **promises**. Ces relations ne permettent pas d'exprimer de modification, abrogation... Utiliser des relations plus générique pourrait résoudre le problème.
+
+**Deuxième possibilité:**
 - La **Legal_Expression** serait un concept, par exemple: Chacun a droit au respect de la présomption d'innocence.
-Si l'article est une **Legal_Expression** alors l'appartenance à un **Code** est bien représenté par la relation **bears**, je ne sais pas choisir si une loi est un **Statement_In_Writing** ou un **Act_of_Law**.
+- Un article est une **Statement_In_Writing** alors l'appartenance à un **Code** n'est pas bien représenté par la relation **bears**, et un **Code** ne serait que un assenblement de concept juridique.
+- Une loi serait un **Act_of_Law**, une action de création, dans notre cas de modification d'article et pas une entité à part entière.
 
-Je vais donc considérer que une article est un **Statement_In_Writing** qui **states** une ensemble d'expression et une 
+1- La première possibilité respecte mieux la structure du **Code** contenant les articles et la loi qui est une proposition écrite avec un auteur.
 
-Droit
+Je vais dévelloper la première possibilité.
 
-Presomption
+```ttl
+ex:Article9_1_CodeCivil rdf:type lkif:Legal_Expression ;
+    rdfs:label "Article 9-1 du Code Civil"@fr ;
+    lkif:stated_by ex:Loi2000_516 ;
+    lkif:utterer ex:AssembleeNationale ;
+    lkif:medium ex:CodeCivil ;
+    lkif:attitude created_by ex:VoteLoi2000_516 .
 
-Innocence
-
-Personne
-classe: 
-
-Date
-
-En Vigueur
-
-Modifié
-
-Codifié
+ex:AssembleeNationale rdf:type lkif:Legislative_Body .
+ex:Loi2000_516 rdf:type lkif:Statement_In_Writing .
+ex:VoteLoi2000_516 rdf:type lkif:Act_of_Law .
+```
 
 
 
