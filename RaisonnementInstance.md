@@ -107,8 +107,8 @@ Trois classes à utiliser: **Legal_Expression**, **Statement_In_Writing**, **Act
 Or, on a l'article et la loi. Quelle est la troisième classe?
 
 **Première possibilité:**
-- Un article est une **Legal_Expression** appartenant à un code.
-- Une loi est un **Statement_In_Writing** qui **states**/déclare des articles.
+- Un article est une **Legal_Expression** appartenant à un code, soit une structure cohérente.
+- Une loi est un **Statement_In_Writing** qui **states**/déclare des articles. 
 - L'**Act_of_Law** serait pas exemple le fait de voter la loi, ce qui conduit à la **creation** de la loi. Cet acttion demande une date, et un **actor** aurait une croyance, des intentions et des expectations pour cette loi. Ces propriété ont un sens intéréssant mais sont possiblement compliqué à trouver.
 
 Les problèmes posés sont:
@@ -120,7 +120,7 @@ Les problèmes posés sont:
 - Un article est une **Statement_In_Writing** alors l'appartenance à un **Code** n'est pas bien représenté par la relation **bears**, et un **Code** ne serait que un assenblement de concept juridique.
 - Une loi serait un **Act_of_Law**, une action de création, dans notre cas de modification d'article et pas une entité à part entière.
 
-1- La première possibilité respecte mieux la structure du **Code** contenant les articles et la loi qui est une proposition écrite avec un auteur.
+1- La première possibilité respecte mieux la structure du **Code** contenant les articles et 
 
 Je vais dévelloper la première possibilité.
 
@@ -129,13 +129,50 @@ ex:Article9_1_CodeCivil rdf:type lkif:Legal_Expression ;
     rdfs:label "Article 9-1 du Code Civil"@fr ;
     lkif:stated_by ex:Loi2000_516 ;
     lkif:utterer ex:AssembleeNationale ;
-    lkif:medium ex:CodeCivil ;
-    lkif:attitude created_by ex:VoteLoi2000_516 .
+    lkif:medium ex:CodeCivil .
 
 ex:AssembleeNationale rdf:type lkif:Legislative_Body .
 ex:Loi2000_516 rdf:type lkif:Statement_In_Writing .
 ex:VoteLoi2000_516 rdf:type lkif:Act_of_Law .
 ```
 
+### Classe de la loi: **Statement_In_Writing**
+
+Propriété:
+- **states some (Expression and (medium some Document))**
+- **states only/some Expression**
+- **held_by only Agent**
+- **author some Agent**
+- **addressee only/some Agent**
+
+**addressee**: Allows for expressing the relation between a communicated attitude and the Agent to which the communication act is addressed
+
+#### Implication:
+
+**author** est une sous-classe de **utterer**.
 
 
+On peut considérer que les 4 premières propriétés ont déjà été pris en compte par les réflexions précédentes, en rajoutant la relation **author**.
+
+Une **Legal_Expression** demande que le **Statement_In_Writing** soit créé par un **Public_Act**(**Act_of_Law**).
+
+Les 2 dernières propriétés nous mettent face au problème: LKIF Core est ontologie généraliste de raisonnement juridique, pas une ontologie de représentation de système juridique.
+
+Listes des incohérences:
+- **Statement_In_Writing** est à ne pas confondre avec un document/écrit, cad que c'est l'intention communiqué de l'agent, pas le medium en lui même. Dans notre cas, ce serait l'intention communiqué par l'Assemblé Nationale ce qui étrange.
+- **addressee** désigne le destinataire de la loi. Au niveau de l'article ça pourrait avoir un sens mais pour une loi c'est plus difficile. Le peuple français?
+
+```ttl
+ex:Loi2000_516 rdf:type lkif:Statement_In_Writing ;
+    rdfs:label "Loi n° 2000-516 du 15 juin 2000 renforçant la protection de la présomption d'innocence et les droits des victimes"
+    lkif:states ex:Article9_1_CodeCivil ;
+    lkif:author ex:AssembleeNationale ;
+    lkif:adressee ex:PeupleFrancais? ;
+    lkif:created_by ex:VoteLoi2000_516 .
+
+ex:AssembleeNationale rdf:type lkif:Legislative_Body .
+ex:Article9_1_CodeCivil rdf:type lkif:Legal_Expression .
+ex:VoteLoi2000_516 rdf:type lkif:Act_of_Law .
+```
+
+### Classe du vote de la loi: **Act_of_Law**
