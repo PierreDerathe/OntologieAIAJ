@@ -1,10 +1,10 @@
-# Exploration  de LKIF Core
+# Synthèse de LKIF Core
 
-Cette exploration est basée sur [LKIF Core: Principled Ontology Development for the Legal Domain](/lkif-core/LKIF-Core-Principled-Ontology-Development-for-the-Legal-Domain.pdf)
+Cette synthèse de l'ontologie légal LKIF-Core est basée sur [LKIF Core: Principled Ontology Development for the Legal Domain](/lkif-core/LKIF-Core-Principled-Ontology-Development-for-the-Legal-Domain.pdf)
 
 L'ontologie LKIF est composée d'un ensemble de plus petites ontologies. Ces ontologies peuvent être classées en 3 niveaux: Supérieur, Intentionel et Légal. Les ontologies des dernières couches se basent et réutilisent les concepts développés dans les couches supérieurs.
 
-![Dependencies between LKIF Core modules](/lkif-core/image/dependencies.png "Dependencies between LKIF Core modules")
+![Dependencies between LKIF Core modules](/ressources/dependencies.png "Dependencies between LKIF Core modules")
 **Dependencies between LKIF Core modules**
 
 ## Niveau supérieur
@@ -19,7 +19,7 @@ Les relations méréologiques permettent de définir les ensembles et les partie
 
 Pour la représentation spatial, sont proposée les notions de place absolue et relative (par rapport à un objet, une entité) et différentes relations entre ces places, par exemple *meet*, la superposition partielle.
 
-![Place and Mereology related concepts](/lkif-core/image/place-mereology.png)
+![Place and Mereology related concepts](/ressources/place-mereology.png)
 
 **Concepts méréologique et spatial**
 
@@ -31,7 +31,7 @@ Ces concepts sont utilisés pour exprimer le concept de changement comme la diff
 
 La notion de *Process* comme un changement issue d'une nécessité causal est aussi définit, mais je n'ai pas bien compris le concept.
 
-![Concepts related to time and change](/lkif-core/image/time-change.png)
+![Concepts related to time and change](/ressources/time-change.png)
 
 **Concepts relatifs au temps et au changement**
 
@@ -45,13 +45,13 @@ Un *Agent* est l'ensemble de ce qui peut être acteur d'une action, le plus souv
 
 Les *Action*s sont des changements due à un *Agent* réalisant ses intentions.
 
-![Actions, agents and organisations](/lkif-core/image/action-agent.png)
+![Actions, agents and organisations](/ressources/action-agent.png)
 
 **Actions, agents et organisations**
 
 Les *Role*s permettent de spécifier des standarts, des propriétés ou des comportements aux entités ayant ce rôle. Ils qualifient aussi bien des artéfacts que des agents. Le rôle d'un agent prescrit son comportement dans un contexte, et donc ses actions, ce qui met en évidence les déviations.
 
-![Roles](/lkif-core/image/role.png)
+![Roles](/ressources/role.png)
 
 **Rôles**
 
@@ -61,10 +61,10 @@ Je n'arrive pas à saisir les concepts suivant en lisant le papier ou en parcour
 
 Pour comprendre cette partie de l'ontologie, un travail de d'[instanciation d'exemple du système légal français](/RaisonnementInstance.md) est proposé.
 
-![Propositions, Attitudes and Expressions](/lkif-core/image/proposition-attitude.png)
+![Propositions, Attitudes and Expressions](/ressources/proposition-attitude.png)
 
 **Propositions, Attitudes et Expressions**
 
-![Qualifications and Norms](/lkif-core/image/qualification-norm.png)
+![Qualifications and Norms](/ressources/qualification-norm.png)
 
 **Normes et Qualifications**
