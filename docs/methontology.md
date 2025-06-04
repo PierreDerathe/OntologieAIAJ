@@ -4,17 +4,22 @@ Cette synthèse de METHONTOLOGY, méthode de construction d'ontologie, est basé
 
 ## Spécification de l'ontologie
 
+- Déterminer le but de l'ontologie, cad son utilisation prévu, des scénario d'utilisation, ses utilisateurs, etc...
+- Décider du niveau de formalité de l'ontologie. Que signifie "niveau de formalité"?
+- Déterminer le champ d'application, qui comprend l'ensemble des termes à représenter, ses caractéristiques et sa granularité.
+
 ## Principaux composants de modélisation
 
 METHONTOLOGY conceptualise des ontologies à l'aide de Représentations Intermédiaires(IR) graphique et tabulaires. Ces IR permettent de modéliser les composants suivants:
 
-- Concepts: A prendre au sens large. Par exemple: Citoyen, Mineur, Decret, Article... 
-- Relations
-- Instances
-- Constantes
-- Attributs
-- Axiomes formels
-- Règles
+- **Concepts** A prendre au sens large. Nous chercherons à créer des taxonomies des concepts.
+Par exemple: Personne morale, Mineur, Decret, Article...
+- **Relations** Représente une relation entre concepts. Une relation entre deux éléments est appelée une relation binaire, que nous allons prioriser.
+- **Instances** sont utilisées pour représenter des éléments ou des individues de l'ontologie. Les concepts et les relations peuvent être instanciés.
+- **Constantes** sont des valeurs qui ne changent pas dans le temps, par exemple l'age de la majorité.
+- **Attributs** décrivent les propriétés des instances et des concepts. Nous ferons la différence entre les attributs de classe et d'instance.
+- **Axiomes formels** Expression logique toujours vrai utilisé pour contraindre une ontologie et son utilisation.
+- **Règles** généralement utilisées pour déduire des information dans une ontologie.
 
 ## Etapes de la conceptualisation:
 
