@@ -1,8 +1,18 @@
-## Instanciation de l'Article 9-1 du code civil
+# Instanciation de l'Article 9-1 du code civil
 
-Chacun a droit au respect de la présomption d'innocence.
+Pour tester les différentes méthodes et ontologies disponibles, une instantiation de l'[article 9-1 du code civil](https://www.legifrance.gouv.fr/codes/article_lc/LEGIARTI000006419316) est réalisé ici.
 
-Lorsqu’une personne est, avant toute condamnation, présentée publiquement comme coupable de faits faisant l’objet d’une enquête ou d’une instruction judiciaire, le juge peut, même en référé, sans préjudice de la réparation du dommage subi, prescrire toutes mesures, telles que l’insertion d’une rectification ou la diffusion d’un communiqué, aux fins de faire cesser l’atteinte à la présomption d’innocence, et ce aux frais de la personne, physique ou morale, responsable de cette atteinte.
+## Contenu à représenter
+
+Toutes les informations nécéssaires à cette instanciation est disponible ici:
+
+- [article 9-1 du code civil](/article-9-1/article9-1-code-civil.md)
+
+## Glossaire
+
+Pour reprendre la méthode de METHONTOLOGY, un [glossaire des termes à représenter](/article-9-1/glossaire-article-9-1.ods) est nécessaire pour organiser la réflexion.
+
+Le glossaire doit contenir tous les termes pertinents, avec leur description, synonymes et acronymes et, le plus important, le type(concept, instance, attribut, relation) des termes.
 
 ## Raisonnment
 
@@ -11,6 +21,7 @@ La création de article implique la création du code civil.
 ### Classe du Code Civil: **Code**
 
 Propriétés:
+
 - **bears some (Norm and (utterer some Legislative_Body))**
 - **bears only (utterer some Legislative_Body)**
 - **bears some (Legal_Expression or Norm)**
@@ -60,6 +71,8 @@ Propriétés:
 - **Expression** est une sous-propriété de **Mental_Entity**.
 
 Un **Legislative_Body** doit avoir une **Personne** membre, possiblement avec un **Organisation_Role** de député.
+
+Grace à l'Open World Assumption
 
 Un **Legislative_Body** doit être **actor_in** d'une **Action**, qui dans notre cas sera probablement un **Act_of_Law**, sous-classe de **Action**.
 
