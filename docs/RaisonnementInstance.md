@@ -14,13 +14,43 @@ Pour reprendre la méthode de METHONTOLOGY, un [glossaire des termes à représe
 
 Le glossaire doit contenir tous les termes pertinents, avec leur description, synonymes et acronymes et, le plus important, le type(concept, instance, attribut, relation) des termes.
 
-## Raisonnment
+## Gérer les identifiants
+
+La plupart des entités représentées ont une ou plusieurs URL ou ID permettant d'y faire référence:
+
+- URL Légifrance
+- L’identifiant ELI (European Legislation Identifier)
+- Le numéro NOR
+- A compléter
+
+Les différent ID seront représenté par des sous-propriétés de [dc:identifier](http://purl.org/dc/terms/identifier) et/ou les propriétés des ontologies d'où viennent l'ID. Pour l'instant, j'ai trouver la propriété dans l'[ontologie ELI](https://op.europa.eu/en/web/eu-vocabularies/eli)
+
+```ttl
+eli:id_local a owl:DatatypeProperty;
+    rdfs:comment "The unique identifier used in a local reference system to maintain backwards compatibility. For examples the CELEX at EU level, or the NOR in France."
+
+ex:id_legifrance a owl:DatatypeProperty;
+    dc:identifier "id_legifrance";
+    rdfs:domain owl:Thing;
+    rdfs:range xsd:string;
+    rdfs:subPropertyOf dc:identifier;
+    rdfs:subPropertyOf schema:legislationIdentifier;
+    rdfs:label "legislative process title"@fr;
+    rdfs:comment "Lien vers la ressource Légifrance"
+```
+
+## Raisonnement
 
 La création de article implique la création du code civil.
 
 ### Classe du Code Civil: **Code**
 
-Propriétés:
+**Termes à définir:**
+
+- Code (Concept)
+- Code civil (Instance)
+
+**Propriétés:**
 
 - **bears some (Norm and (utterer some Legislative_Body))**
 - **bears only (utterer some Legislative_Body)**
@@ -30,7 +60,7 @@ Propriétés:
 **bears**: A Medium 'bears' or carries expressions.
 **utterer**: Relates an utterance (communicated propositional attitude) to its utterer
 
-#### Implication:
+#### Implication
 
 Toute partie de code doit être une **Expression** et être communiquée par un **Legislative_Body** (dans le cas français, l'éxecutif  peut faire des lois?).
 
@@ -39,6 +69,7 @@ Une partie de **Code** doit être une **Expression**, une **Norm** ou une **Lega
 Est-ce que un article est une **Expression**, un ensemble d'**Expression** ou une partie d'**Expression**? Pour simplifier, je considère que un article est **Expression**.
 
 Nouvelles classes à explorer:
+
 - **Legislative_Body**
 - **Expression**, **Legal_Expression** et **Norm**
 - **Statement_In_Writing**
@@ -54,6 +85,7 @@ ex:Article9_1_CodeCivil rdf:type lkif:Expression .
 ### Classe de l'assemblée nationale: **Legislative_Body**
 
 Propriétés:
+
 - **actor_in some/only Action**
 - **participant_in only Change**
 - **member only (Organisation or Person)**
@@ -72,7 +104,7 @@ Propriétés:
 
 Un **Legislative_Body** doit avoir une **Personne** membre, possiblement avec un **Organisation_Role** de député.
 
-Grace à l'Open World Assumption
+Grace à l'Open World Assumption, on considère que si une propriété n'est pas explicitement fausse, elle est respectée. Par exemple, si l'assemblée doit avoir un membre mais aucun n'est mentionné, on considère que la propriété est respectée car un membre peut exister mais ne pas être mentionné.
 
 Un **Legislative_Body** doit être **actor_in** d'une **Action**, qui dans notre cas sera probablement un **Act_of_Law**, sous-classe de **Action**.
 
@@ -83,11 +115,11 @@ Définir un **Organisation_Role** de député pour les membres de l'Assemblée N
 ```ttl
 ex:AssembleeNationale rdf:type lkif:Legislative_Body ;
     rdfs:label "Assemblée Nationale"@fr ;
-    lkif:member ex:NadegeAbomangoli ;
+    # lkif:member ex:NadegeAbomangoli ;
     lkif:actor_in ex:VoteLoi2000_516 ;
     lkif:utterer ex:Article9_1_CodeCivil .
 
-ex:NadegeAbomangoli rdf:type lkif:Person .
+# ex:NadegeAbomangoli rdf:type lkif:Person .
 ex:VoteLoi2000_516 rdf:type lkif:Act_of_Law .
 ex:Depute rdf:type lkif:Organisation_Role .
 ```
@@ -97,6 +129,7 @@ ex:Depute rdf:type lkif:Organisation_Role .
 Explorons **Legal_Expression**.
 
 Propriétés:
+
 - **attitude some (created_by some Public_Act)**
 - **held_by some/only Agent**
 - **stated_by some/only Communicated_Attitude**
@@ -104,7 +137,7 @@ Propriétés:
 
 **stated_by**: Relates a statement to its author
 
-#### Implication:
+#### Implication
 
 - **stated_by** est une sous-propriété de **attitude**.
 - **created_by** est une sous-propriété de **actor_in**.
@@ -120,15 +153,18 @@ Trois classes à utiliser: **Legal_Expression**, **Statement_In_Writing**, **Act
 Or, on a l'article et la loi. Quelle est la troisième classe?
 
 **Première possibilité:**
+
 - Un article est une **Legal_Expression** appartenant à un code.
 - Une loi est un **Statement_In_Writing** qui **states**/déclare des articles. 
 - L'**Act_of_Law** serait par exemple le fait de voter la loi, ce qui conduit à la **creation** de la loi. Cet action demande une date, et un **Agent** aurait une croyance, des intentions et des expectations pour cette loi. Ces propriétés ont un sens intéressant mais sont possiblement compliquées à trouver.
 
 Les problèmes posés sont:
+
 - un article complexe peut-il être représenté par une **Legal_Expression**?
 - les relations existantes entre une **Statement_In_Writing** et une **Legal_Expression** sont **states**, **asserts**, **declares** et **promises**. Ces relations ne permettent pas d'exprimer de modification, abrogation... Utiliser des relations plus génériques pourrait résoudre le problème.
 
 **Deuxième possibilité:**
+
 - La **Legal_Expression** serait un concept, par exemple: Chacun a droit au respect de la présomption d'innocence.
 - Un article est une **Statement_In_Writing** alors l'appartenance à un **Code** n'est pas bien représentée par la relation **bears**, et un **Code** ne serait que un ensemble de concepts juridiques.
 - Une loi serait un **Act_of_Law**, une action de création, dans notre cas de modification d'article et pas une entité à part entière.

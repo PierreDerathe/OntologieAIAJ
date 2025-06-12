@@ -1,0 +1,30 @@
+Nom,Type,Synonymes,Acronymes,Description
+url,Attribut d'instance,,,
+depuis,Attribut d'instance,,,
+Contenu textuel,Attribut d'instance,,,
+ID d’article,Attribut d'instance,,,
+du ... au ...,Attribut d'instance,,,
+Code,Concept,,,Recueil de lois ou de règles juridiques
+Livre,Concept,,,
+Titre,Concept,,,
+Article,Concept,,,Un article est une prescription contenue dans un texte législatif
+en vigueur,Concept,,,
+Version,Concept,,,
+Date,Concept,,,
+European Legislation Identifier,Concept,,ELI,
+numéro NOR,Concept,,NOR,Le système NOR est un système normalisé de numérotation des textes officiels publiés en France
+Ordonnance,Concept,,,
+relatives à,Concept,,,
+Code civil,Instance,,,Code juridique qui regroupe les lois relatives au droit civil français
+Livre Ier : Des personnes,Instance,,,
+Titre Ier : Des droits civils,Instance,,,
+Article 9-1,Instance,,,
+Loi n°2000-516 du 15 juin 2000,Instance,,,
+Ordonnance n°96-267 du 28 mars 1996,Instance,,,
+16 juin 2000,Instance,,,
+JORF 16 juin 2000,Instance,,,
+Loi n°2000-516 du 15 juin 2000 - art. 91 (),Instance,,,
+modifié par,Relation,,,
+cité par,Relation,,,
+codifié par,Relation,,,
+créé par,Relation,,,

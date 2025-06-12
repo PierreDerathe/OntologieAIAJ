@@ -41,11 +41,12 @@ Ce dépôt regroupe un ensemble de réflexions, de ressources, d'expérimentatio
 - [`RaisonnementInstance.md`](/docs/RaisonnementInstance.md)  
   ➤ Notes sur une **instanciation expérimentale** de `lkif-core` dans le contexte du droit français.
 
--[`article-9-1`](/article-9-1/)
+- [`article-9-1`](/article-9-1/)
   ➤ Dossier contenant toutes les ressources utilisées dans le cadre de l'instanciation de l'article 9-1 du code civil.
-
-- [`instance.ttl`](/article-9-1/instance.ttl)
-  ➤ Fichier **Turtle** contenant un exemple d’**instanciation** concrète.
+  - [`instance.ttl`](/article-9-1/instance.ttl)
+    ➤ Fichier **Turtle** contenant un exemple d’**instanciation** concrète.
+  - [`glossaire-article-9-1.csv`](/article-9-1/glossaire-article-9-1.csv)
+    ➤ Fichier **csv** contenant un glossaire des termes pertinents à l'article 9-1 selon METHONTOLOGIE.
 
 ---
 

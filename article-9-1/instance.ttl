@@ -4,6 +4,21 @@
 @prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
 @prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix schema: <http://schema.org/> .
+@prefix eli: <http://data.europa.eu/eli/ontology#>  .
+@prefix dc: <http://purl.org/dc/elements/1.1/> .
+
+eli:id_local a owl:DatatypeProperty;
+    rdfs:comment "The unique identifier used in a local reference system to maintain backwards compatibility. For examples the CELEX at EU level, or the NOR in France."
+
+ex:id_legifrance a owl:DatatypeProperty;
+    dc:identifier "id_legifrance";
+    rdfs:domain owl:Thing;
+    rdfs:range xsd:string;
+    rdfs:subPropertyOf dc:identifier;
+    rdfs:subPropertyOf schema:legislationIdentifier;
+    rdfs:label "legislative process title"@fr;
+    rdfs:comment "Lien vers la ressource Légifrance"
 
 # Individual
 ex:AssembleeNationale rdf:type lkif:Legislative_Body ;
@@ -22,14 +37,26 @@ ex:LegislativeRole rdf:type lkif:Organisation_Role .
 
 ex:CodeCivil rdf:type lkif:Code ;
     rdfs:label "Code Civil"@fr ;
+    ex:id_legifrance "https://www.legifrance.gouv.fr/codes/texte_lc/LEGITEXT000006070721/2025-06-12/" ;
     lkif:bears ex:Article9_1_CodeCivil .
 
 ex:Article9_1_CodeCivil rdf:type lkif:Legal_Expression ;
     rdfs:label "Article 9-1 du Code Civil"@fr ;
+    ex:id_legifrance "https://www.legifrance.gouv.fr/codes/article_lc/LEGIARTI000006419316/" ;
     lkif:stated_by ex:Loi2000_516 ;
     lkif:utterer ex:AssembleeNationale ;
     lkif:medium ex:CodeCivil ;
     lkif:attitude created_by ex:VoteLoi2000_516 .
+
+ex:Loi2000_516 rdf:type lkif:Statement_In_Writing ;
+    rdfs:label "Loi n° 2000-516 du 15 juin 2000 renforçant la protection de la présomption d'innocence et les droits des victimes"
+    ex:id_legifrance "https://www.legifrance.gouv.fr/jorf/id/JORFTEXT000000765204/" ;
+    eli:id_local "http://www.legifrance.gouv.fr/eli/loi/2000/6/15/JUSX9800048L/jo/texte " ;
+    eli:id_local "https://www.legifrance.gouv.fr/eli/loi/2000/6/15/2000-516/jo/texte" ;
+    lkif:states ex:Article9_1_CodeCivil ;
+    lkif:author ex:AssembleeNationale ;
+    lkif:adressee ex:PeupleFrancais? ;
+    lkif:created_by ex:VoteLoi2000_516 .
 
 ex:LegislativeRole rdf:type lkif:Organisation_Role ;
     rdfs:label "Rôle législatif"@fr ;
