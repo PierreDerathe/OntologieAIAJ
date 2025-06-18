@@ -42,3 +42,16 @@ DatatypeProperty: number: An identifier or other disambiguating feature for a wo
 id_local: The unique identifier used in a local reference system to maintain backwards compatibility. For examples the CELEX at EU level, or the NOR in France.
 
 Metalex ontology (http://www.metalex.eu/)
+
+Version initiale
+Télécharger le Journal officiel de la République française
+
+url; depuis; Contenu textuel
+ID d’article; numéro
+date d'entrée en application; date de fin d'application; date de publication
+état d'application
+titre
+Date
+European Legislation Identifier
+numéro NOR
+Livre; Titre; Article; Chapitre; Section; Paragraphe
