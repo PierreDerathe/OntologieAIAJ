@@ -1,6 +1,6 @@
 Nom,Type de valeur,Valeur,Unité de mesure
-Abrogé,enum,,
-En vigueur,enum,,
+Abroge,enum,,
+EnVigueur,enum,,
 Livre,Cardinal,0,
 Titre,Cardinal,1,
 Chapitre,Cardinal,2,

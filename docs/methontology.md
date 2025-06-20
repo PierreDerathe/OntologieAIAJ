@@ -13,9 +13,9 @@ Les propriétés suivantes sont attendues de la spécification:
 - La concision, c'est-à-dire que chaque terme est pertinent, et il n'y a pas de termes dupliqués.
 - La cohérence, c'est-à-dire le fait que tous les termes et leur signification ont un sens dans le domaine.
 - La complétude partielle pour que l’ontologie couvre suffisamment bien son domaine avec des concepts essentiels, sans problème d'étape intermédiaire, et à un niveau de détail adapté. On attend:
-    - une complétude suffisante (sans prétendre à l’exhaustivité).
-    - une cohérence dans la structure.
-    - une granularité cohérente et adaptée à l’objectif.
+  - une complétude suffisante (sans prétendre à l’exhaustivité).
+  - une cohérence dans la structure.
+  - une granularité cohérente et adaptée à l’objectif.
 
 ## Principaux composants de modélisation
 

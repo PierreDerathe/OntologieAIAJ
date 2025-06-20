@@ -1,0 +1,493 @@
+<?xml version="1.0"?>
+<rdf:RDF xmlns="http://www.semanticweb.org/pierre/ontologies/2025/5/code-civil-ontology//"
+     xml:base="http://www.semanticweb.org/pierre/ontologies/2025/5/code-civil-ontology//"
+     xmlns:dc="http://purl.org/dc/elements/1.1/"
+     xmlns:eli="http://data.europa.eu/eli/ontology#"
+     xmlns:owl="http://www.w3.org/2002/07/owl#"
+     xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+     xmlns:xml="http://www.w3.org/XML/1998/namespace"
+     xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
+     xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
+     xmlns:skos="http://www.w3.org/2004/02/skos/core#">
+    <owl:Ontology rdf:about="http://www.semanticweb.org/pierre/ontologies/2025/5/code-civil-ontology/"/>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Object Properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://www.semanticweb.org/pierre/ontologies/2025/5/code-civil-ontology/abroge -->
+
+    <owl:ObjectProperty rdf:about="http://www.semanticweb.org/pierre/ontologies/2025/5/code-civil-ontology/abroge">
+        <rdfs:subPropertyOf rdf:resource="http://www.semanticweb.org/pierre/ontologies/2025/5/code-civil-ontology/change"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/pierre/ontologies/2025/5/code-civil-ontology/abroge_par -->
+
+    <owl:ObjectProperty rdf:about="http://www.semanticweb.org/pierre/ontologies/2025/5/code-civil-ontology/abroge_par">
+        <rdfs:subPropertyOf rdf:resource="http://www.semanticweb.org/pierre/ontologies/2025/5/code-civil-ontology/change_par"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/pierre/ontologies/2025/5/code-civil-ontology/change -->
+
+    <owl:ObjectProperty rdf:about="http://www.semanticweb.org/pierre/ontologies/2025/5/code-civil-ontology/change">
+        <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2002/07/owl#topObjectProperty"/>
+        <owl:inverseOf rdf:resource="http://www.semanticweb.org/pierre/ontologies/2025/5/code-civil-ontology/change_par"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/pierre/ontologies/2025/5/code-civil-ontology/change_par -->
+
+    <owl:ObjectProperty rdf:about="http://www.semanticweb.org/pierre/ontologies/2025/5/code-civil-ontology/change_par">
+        <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2002/07/owl#topObjectProperty"/>
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/pierre/ontologies/2025/5/code-civil-ontology/RessourceLegale"/>
+        <rdfs:range rdf:resource="http://www.semanticweb.org/pierre/ontologies/2025/5/code-civil-ontology/RessourceLegale"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/pierre/ontologies/2025/5/code-civil-ontology/cite -->
+
+    <owl:ObjectProperty rdf:about="http://www.semanticweb.org/pierre/ontologies/2025/5/code-civil-ontology/cite">
+        <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2002/07/owl#topObjectProperty"/>
+        <owl:inverseOf rdf:resource="http://www.semanticweb.org/pierre/ontologies/2025/5/code-civil-ontology/cite_par"/>
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/pierre/ontologies/2025/5/code-civil-ontology/RessourceLegale"/>
+        <rdfs:range rdf:resource="http://www.semanticweb.org/pierre/ontologies/2025/5/code-civil-ontology/RessourceLegale"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/pierre/ontologies/2025/5/code-civil-ontology/cite_par -->
+
+    <owl:ObjectProperty rdf:about="http://www.semanticweb.org/pierre/ontologies/2025/5/code-civil-ontology/cite_par">
+        <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2002/07/owl#topObjectProperty"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/pierre/ontologies/2025/5/code-civil-ontology/codifie -->
+
+    <owl:ObjectProperty rdf:about="http://www.semanticweb.org/pierre/ontologies/2025/5/code-civil-ontology/codifie">
+        <rdfs:subPropertyOf rdf:resource="http://www.semanticweb.org/pierre/ontologies/2025/5/code-civil-ontology/change"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/pierre/ontologies/2025/5/code-civil-ontology/codifie_par -->
+
+    <owl:ObjectProperty rdf:about="http://www.semanticweb.org/pierre/ontologies/2025/5/code-civil-ontology/codifie_par">
+        <rdfs:subPropertyOf rdf:resource="http://www.semanticweb.org/pierre/ontologies/2025/5/code-civil-ontology/change_par"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/pierre/ontologies/2025/5/code-civil-ontology/cree -->
+
+    <owl:ObjectProperty rdf:about="http://www.semanticweb.org/pierre/ontologies/2025/5/code-civil-ontology/cree">
+        <rdfs:subPropertyOf rdf:resource="http://www.semanticweb.org/pierre/ontologies/2025/5/code-civil-ontology/change"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/pierre/ontologies/2025/5/code-civil-ontology/cree_par -->
+
+    <owl:ObjectProperty rdf:about="http://www.semanticweb.org/pierre/ontologies/2025/5/code-civil-ontology/cree_par">
+        <rdfs:subPropertyOf rdf:resource="http://www.semanticweb.org/pierre/ontologies/2025/5/code-civil-ontology/change_par"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/pierre/ontologies/2025/5/code-civil-ontology/etat_application -->
+
+    <owl:ObjectProperty rdf:about="http://www.semanticweb.org/pierre/ontologies/2025/5/code-civil-ontology/etat_application">
+        <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2002/07/owl#topObjectProperty"/>
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/pierre/ontologies/2025/5/code-civil-ontology/RessourceLegale"/>
+        <rdfs:range rdf:resource="http://www.semanticweb.org/pierre/ontologies/2025/5/code-civil-ontology/EtatApplication"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/pierre/ontologies/2025/5/code-civil-ontology/has_part -->
+
+    <owl:ObjectProperty rdf:about="http://www.semanticweb.org/pierre/ontologies/2025/5/code-civil-ontology/has_part">
+        <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2002/07/owl#topObjectProperty"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/pierre/ontologies/2025/5/code-civil-ontology/modifie -->
+
+    <owl:ObjectProperty rdf:about="http://www.semanticweb.org/pierre/ontologies/2025/5/code-civil-ontology/modifie">
+        <rdfs:subPropertyOf rdf:resource="http://www.semanticweb.org/pierre/ontologies/2025/5/code-civil-ontology/change"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/pierre/ontologies/2025/5/code-civil-ontology/modifie_par -->
+
+    <owl:ObjectProperty rdf:about="http://www.semanticweb.org/pierre/ontologies/2025/5/code-civil-ontology/modifie_par">
+        <rdfs:subPropertyOf rdf:resource="http://www.semanticweb.org/pierre/ontologies/2025/5/code-civil-ontology/change_par"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/pierre/ontologies/2025/5/code-civil-ontology/part_of -->
+
+    <owl:ObjectProperty rdf:about="http://www.semanticweb.org/pierre/ontologies/2025/5/code-civil-ontology/part_of">
+        <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2002/07/owl#topObjectProperty"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/pierre/ontologies/2025/5/code-civil-ontology/publie -->
+
+    <owl:ObjectProperty rdf:about="http://www.semanticweb.org/pierre/ontologies/2025/5/code-civil-ontology/publie">
+        <rdfs:subPropertyOf rdf:resource="http://www.semanticweb.org/pierre/ontologies/2025/5/code-civil-ontology/has_part"/>
+        <owl:inverseOf rdf:resource="http://www.semanticweb.org/pierre/ontologies/2025/5/code-civil-ontology/publie_dans"/>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#IrreflexiveProperty"/>
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/pierre/ontologies/2025/5/code-civil-ontology/PublicationOfficielle"/>
+        <rdfs:range rdf:resource="http://www.semanticweb.org/pierre/ontologies/2025/5/code-civil-ontology/RessourceLegale"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/pierre/ontologies/2025/5/code-civil-ontology/publie_dans -->
+
+    <owl:ObjectProperty rdf:about="http://www.semanticweb.org/pierre/ontologies/2025/5/code-civil-ontology/publie_dans">
+        <rdfs:subPropertyOf rdf:resource="http://www.semanticweb.org/pierre/ontologies/2025/5/code-civil-ontology/part_of"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/pierre/ontologies/2025/5/code-civil-ontology/relative_a -->
+
+    <owl:ObjectProperty rdf:about="http://www.semanticweb.org/pierre/ontologies/2025/5/code-civil-ontology/relative_a">
+        <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2002/07/owl#topObjectProperty"/>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#SymmetricProperty"/>
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/pierre/ontologies/2025/5/code-civil-ontology/Document"/>
+        <rdfs:range rdf:resource="http://www.semanticweb.org/pierre/ontologies/2025/5/code-civil-ontology/Document"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/pierre/ontologies/2025/5/code-civil-ontology/version -->
+
+    <owl:ObjectProperty rdf:about="http://www.semanticweb.org/pierre/ontologies/2025/5/code-civil-ontology/version">
+        <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2002/07/owl#topObjectProperty"/>
+        <owl:inverseOf rdf:resource="http://www.semanticweb.org/pierre/ontologies/2025/5/code-civil-ontology/version_de"/>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#InverseFunctionalProperty"/>
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/pierre/ontologies/2025/5/code-civil-ontology/TexteConsolide"/>
+        <rdfs:range rdf:resource="http://www.semanticweb.org/pierre/ontologies/2025/5/code-civil-ontology/VersionLegale"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/pierre/ontologies/2025/5/code-civil-ontology/version_actuelle -->
+
+    <owl:ObjectProperty rdf:about="http://www.semanticweb.org/pierre/ontologies/2025/5/code-civil-ontology/version_actuelle">
+        <rdfs:subPropertyOf rdf:resource="http://www.semanticweb.org/pierre/ontologies/2025/5/code-civil-ontology/version"/>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#InverseFunctionalProperty"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/pierre/ontologies/2025/5/code-civil-ontology/version_de -->
+
+    <owl:ObjectProperty rdf:about="http://www.semanticweb.org/pierre/ontologies/2025/5/code-civil-ontology/version_de">
+        <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2002/07/owl#topObjectProperty"/>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Data properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://www.semanticweb.org/pierre/ontologies/2025/5/code-civil-ontology/url_legifrance -->
+
+    <owl:DatatypeProperty rdf:about="http://www.semanticweb.org/pierre/ontologies/2025/5/code-civil-ontology/url_legifrance">
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/pierre/ontologies/2025/5/code-civil-ontology/RessourceLegale"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Classes
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://www.semanticweb.org/pierre/ontologies/2025/5/code-civil-ontology/Arrete -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/pierre/ontologies/2025/5/code-civil-ontology/Arrete">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/pierre/ontologies/2025/5/code-civil-ontology/RessourceLegale"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/pierre/ontologies/2025/5/code-civil-ontology/Article -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/pierre/ontologies/2025/5/code-civil-ontology/Article">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/pierre/ontologies/2025/5/code-civil-ontology/SousPartieRessourceLegale"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/pierre/ontologies/2025/5/code-civil-ontology/Chapitre -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/pierre/ontologies/2025/5/code-civil-ontology/Chapitre">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/pierre/ontologies/2025/5/code-civil-ontology/SousPartieRessourceLegale"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/pierre/ontologies/2025/5/code-civil-ontology/Circulaire -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/pierre/ontologies/2025/5/code-civil-ontology/Circulaire">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/pierre/ontologies/2025/5/code-civil-ontology/RessourceLegale"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/pierre/ontologies/2025/5/code-civil-ontology/Code -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/pierre/ontologies/2025/5/code-civil-ontology/Code">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/pierre/ontologies/2025/5/code-civil-ontology/RessourceLegale"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/pierre/ontologies/2025/5/code-civil-ontology/Concept -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/pierre/ontologies/2025/5/code-civil-ontology/Concept"/>
+    
+
+
+    <!-- http://www.semanticweb.org/pierre/ontologies/2025/5/code-civil-ontology/Decision -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/pierre/ontologies/2025/5/code-civil-ontology/Decision">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/pierre/ontologies/2025/5/code-civil-ontology/RessourceLegale"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/pierre/ontologies/2025/5/code-civil-ontology/Decret -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/pierre/ontologies/2025/5/code-civil-ontology/Decret">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/pierre/ontologies/2025/5/code-civil-ontology/RessourceLegale"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/pierre/ontologies/2025/5/code-civil-ontology/Document -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/pierre/ontologies/2025/5/code-civil-ontology/Document"/>
+    
+
+
+    <!-- http://www.semanticweb.org/pierre/ontologies/2025/5/code-civil-ontology/EtatApplication -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/pierre/ontologies/2025/5/code-civil-ontology/EtatApplication">
+        <owl:equivalentClass>
+            <owl:Class>
+                <owl:oneOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="http://www.semanticweb.org/pierre/ontologies/2025/5/code-civil-ontology/Abroge"/>
+                    <rdf:Description rdf:about="http://www.semanticweb.org/pierre/ontologies/2025/5/code-civil-ontology/EnVigueur"/>
+                </owl:oneOf>
+            </owl:Class>
+        </owl:equivalentClass>
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/pierre/ontologies/2025/5/code-civil-ontology/Concept"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/pierre/ontologies/2025/5/code-civil-ontology/Livre -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/pierre/ontologies/2025/5/code-civil-ontology/Livre">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/pierre/ontologies/2025/5/code-civil-ontology/SousPartieRessourceLegale"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/pierre/ontologies/2025/5/code-civil-ontology/Loi -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/pierre/ontologies/2025/5/code-civil-ontology/Loi">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/pierre/ontologies/2025/5/code-civil-ontology/RessourceLegale"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/pierre/ontologies/2025/5/code-civil-ontology/Ordonnance -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/pierre/ontologies/2025/5/code-civil-ontology/Ordonnance">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/pierre/ontologies/2025/5/code-civil-ontology/RessourceLegale"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/pierre/ontologies/2025/5/code-civil-ontology/Paragraphe -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/pierre/ontologies/2025/5/code-civil-ontology/Paragraphe">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/pierre/ontologies/2025/5/code-civil-ontology/SousPartieRessourceLegale"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/pierre/ontologies/2025/5/code-civil-ontology/PublicationOfficielle -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/pierre/ontologies/2025/5/code-civil-ontology/PublicationOfficielle">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/pierre/ontologies/2025/5/code-civil-ontology/RessourceLegale"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/pierre/ontologies/2025/5/code-civil-ontology/RessourceLegale -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/pierre/ontologies/2025/5/code-civil-ontology/RessourceLegale">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/pierre/ontologies/2025/5/code-civil-ontology/Document"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/pierre/ontologies/2025/5/code-civil-ontology/Section -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/pierre/ontologies/2025/5/code-civil-ontology/Section">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/pierre/ontologies/2025/5/code-civil-ontology/SousPartieRessourceLegale"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/pierre/ontologies/2025/5/code-civil-ontology/SousPartieDocument -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/pierre/ontologies/2025/5/code-civil-ontology/SousPartieDocument">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/pierre/ontologies/2025/5/code-civil-ontology/Document"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/pierre/ontologies/2025/5/code-civil-ontology/SousPartieRessourceLegale -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/pierre/ontologies/2025/5/code-civil-ontology/SousPartieRessourceLegale">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/pierre/ontologies/2025/5/code-civil-ontology/RessourceLegale"/>
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/pierre/ontologies/2025/5/code-civil-ontology/SousPartieDocument"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/pierre/ontologies/2025/5/code-civil-ontology/TexteConsolide -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/pierre/ontologies/2025/5/code-civil-ontology/TexteConsolide">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/pierre/ontologies/2025/5/code-civil-ontology/RessourceLegale"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/pierre/ontologies/2025/5/code-civil-ontology/Titre -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/pierre/ontologies/2025/5/code-civil-ontology/Titre">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/pierre/ontologies/2025/5/code-civil-ontology/SousPartieRessourceLegale"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/pierre/ontologies/2025/5/code-civil-ontology/VersionLegale -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/pierre/ontologies/2025/5/code-civil-ontology/VersionLegale">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/pierre/ontologies/2025/5/code-civil-ontology/RessourceLegale"/>
+    </owl:Class>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Individuals
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://www.semanticweb.org/pierre/ontologies/2025/5/code-civil-ontology/Abroge -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/pierre/ontologies/2025/5/code-civil-ontology/Abroge"/>
+    
+
+
+    <!-- http://www.semanticweb.org/pierre/ontologies/2025/5/code-civil-ontology/EnVigueur -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/pierre/ontologies/2025/5/code-civil-ontology/EnVigueur">
+        <rdf:type rdf:resource="http://www.semanticweb.org/pierre/ontologies/2025/5/code-civil-ontology/EtatApplication"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // General axioms
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    <rdf:Description>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#AllDisjointClasses"/>
+        <owl:members rdf:parseType="Collection">
+            <rdf:Description rdf:about="http://www.semanticweb.org/pierre/ontologies/2025/5/code-civil-ontology/Arrete"/>
+            <rdf:Description rdf:about="http://www.semanticweb.org/pierre/ontologies/2025/5/code-civil-ontology/Circulaire"/>
+            <rdf:Description rdf:about="http://www.semanticweb.org/pierre/ontologies/2025/5/code-civil-ontology/Code"/>
+            <rdf:Description rdf:about="http://www.semanticweb.org/pierre/ontologies/2025/5/code-civil-ontology/Decision"/>
+            <rdf:Description rdf:about="http://www.semanticweb.org/pierre/ontologies/2025/5/code-civil-ontology/Decret"/>
+            <rdf:Description rdf:about="http://www.semanticweb.org/pierre/ontologies/2025/5/code-civil-ontology/Loi"/>
+            <rdf:Description rdf:about="http://www.semanticweb.org/pierre/ontologies/2025/5/code-civil-ontology/Ordonnance"/>
+            <rdf:Description rdf:about="http://www.semanticweb.org/pierre/ontologies/2025/5/code-civil-ontology/PublicationOfficielle"/>
+            <rdf:Description rdf:about="http://www.semanticweb.org/pierre/ontologies/2025/5/code-civil-ontology/SousPartieRessourceLegale"/>
+            <rdf:Description rdf:about="http://www.semanticweb.org/pierre/ontologies/2025/5/code-civil-ontology/TexteConsolide"/>
+            <rdf:Description rdf:about="http://www.semanticweb.org/pierre/ontologies/2025/5/code-civil-ontology/VersionLegale"/>
+        </owl:members>
+    </rdf:Description>
+    <rdf:Description>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#AllDisjointClasses"/>
+        <owl:members rdf:parseType="Collection">
+            <rdf:Description rdf:about="http://www.semanticweb.org/pierre/ontologies/2025/5/code-civil-ontology/Article"/>
+            <rdf:Description rdf:about="http://www.semanticweb.org/pierre/ontologies/2025/5/code-civil-ontology/Chapitre"/>
+            <rdf:Description rdf:about="http://www.semanticweb.org/pierre/ontologies/2025/5/code-civil-ontology/Livre"/>
+            <rdf:Description rdf:about="http://www.semanticweb.org/pierre/ontologies/2025/5/code-civil-ontology/Paragraphe"/>
+            <rdf:Description rdf:about="http://www.semanticweb.org/pierre/ontologies/2025/5/code-civil-ontology/Section"/>
+            <rdf:Description rdf:about="http://www.semanticweb.org/pierre/ontologies/2025/5/code-civil-ontology/Titre"/>
+        </owl:members>
+    </rdf:Description>
+</rdf:RDF>
+
+
+
+<!-- Generated by the OWL API (version 4.5.29.2024-05-13T12:11:03Z) https://github.com/owlcs/owlapi -->
+

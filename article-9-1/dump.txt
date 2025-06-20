@@ -65,3 +65,52 @@ contenu textuel
 titre
 titre abrégé
 numéro de partie
+
+dc:
+http://purl.org/dc/elements/1.1/
+
+eli:
+http://data.europa.eu/eli/ontology#
+
+foaf:
+http://xmlns.com/foaf/0.1/
+
+skos:
+http://www.w3.org/2004/02/skos/core#
+
+terms:
+http://purl.org/dc/terms/
+
+
+RessourceLegale
+Arrete
+Circulaire
+Code
+Decision
+Decret
+Loi
+Ordonnance
+PublicationOfficielle
+SousPartieRessourceLegale
+
+etat_application
+cite
+cite_par
+change
+    modifie
+    codifie
+    cree
+    abroge
+change_par
+    modifie_par
+    codifie_par
+    cree_par
+    abroge_par
+relative_a
+has_part
+    publie
+part_of
+    publie_dans
+version
+    version_actuelle
+version_de
