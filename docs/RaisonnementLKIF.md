@@ -8,12 +8,6 @@ Toutes les informations nécéssaires à cette instanciation est disponible ici:
 
 - [article 9-1 du code civil](/article-9-1/article9-1-code-civil.md)
 
-## Glossaire
-
-Pour reprendre la méthode de METHONTOLOGY, un [glossaire des termes à représenter](/article-9-1/glossaire-article-9-1.ods) est nécessaire pour organiser la réflexion.
-
-Le glossaire doit contenir tous les termes pertinents, avec leur description, synonymes et acronymes et, le plus important, le type(concept, instance, attribut, relation) des termes.
-
 ## Gérer les identifiants
 
 La plupart des entités représentées ont une ou plusieurs URL ou ID permettant d'y faire référence:

@@ -1,0 +1,28 @@
+# Methontology
+
+Une conceptualisation de l'article 9-1 et du code civile en général est réalisé [ici](https://docs.google.com/spreadsheets/d/1LXRdw52-h6httHf_AmzNjLxbpeQLAh-wXLBkRd5JaR8/edit?usp=sharing). Les choix et raisonnement vont être décris ici.
+
+## Glossaire
+
+Pour reprendre la méthode de METHONTOLOGY, un [glossaire des termes à représenter](/article-9-1/glossaire-article-9-1%20-%20Glossaire.csv) est nécessaire pour organiser la réflexion.
+
+Le glossaire doit contenir tous les termes pertinents, avec leur description, synonymes et acronymes et, le plus important, le type(concept, instance, attribut, relation) des termes.
+
+Une question  s'est posée pour les type de sous-partie (Article, Chapitre...) et de ressource légale(Loi, Code...) de les représenter comme des des concepts à part entières ou à l'aide d'attribut avec des type énumérés. Tant que chaque type est indisociable de l'autre à part le nom, le type énuméré marche bien et permet de simplifier la structure et la généralisation.
+
+J'ai fait fait le choix de représenter les sous-parties avec des types énumérés et les type légales comme des concepts. Je regrette déjà ce choix pour les sous parties car l'article pourrait avoir des spécificité que le type énuméré complique à exprimer.
+
+## Taxonomie et diagramme
+
+On constate dés cette étape que se baser sur les termes du code civil est limités. En effet, on manque les classes génériques permettant de faire la taxonomie. J'ai donc rajouter les termes suivants:
+
+- Concept
+- Etat d'application
+- Ressource Légale
+- Document
+- Sous-partie de Document
+- Publication officielle
+
+Aussi, les question de partition et de décomposition exaustive ne sont pas approchable du au manque d'information de moi et de l'exemple du code civil.
+
+![Taxonomie et diagramme](/article-9-1/Taxonomie-article-9-1.drawio.png)
