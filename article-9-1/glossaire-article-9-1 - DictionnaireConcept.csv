@@ -2,15 +2,16 @@ Nom des Concepts,Instances,Attribut d'instance,Relation
 Version,,,version_de
 Etat d'application,En vigeur; Abrogé,,
 Texte Consolidé,Loi n°2000-516 du 15 juin 2000; Ordonnance n°96-267 du 28 mars 1996,,
-Ressource Légale,,url Légifrance; date de publication; date d'entrée en application; date de fin d'application; European Legislation Identifier,état_application; cite; cité_par; modifie; modifié_par; codifie; codifié_par; crée; créé_par; abroge; abrogé_par; publié_dans; relative_à; has_part
-Sous-partie de ressource Légale,,,
+Ressource Légale,,url Légifrance; date de publication; date d'entrée en application; date de fin d'application; ELI,état_application; cite; cité_par; modifie; modifié_par; codifie; codifié_par; crée; créé_par; abroge; abrogé_par; publié_dans; relative_à; has_part
+Sous-partie de ressource Légale,Livre Ier : Des personnes; Titre Ier : Des droits civils; Article 9-1,numéro de partie,
 Sous-partie de Document,,,type_sous_partie
 Type de sous-partie,Livre; Titre; Article; Chapitre; Section; Paragraphe,,
-Ordonnance,,,
-Document,,"contenu textuel, titre, titre abrégé",
-Publication officielle,,,
-Loi,,,
+Ordonnance,Ordonnance n°96-267 du 28 mars 1996,,
+Document,Droit à l'image et respect de la vie privée,contenu textuel; titre; titre abrégé,
+Publication officielle,JORF 16 juin 2000,,
+Loi,Loi n°2000-516 du 15 juin 2000,,
 Décision,,,
 Arrêté,,,
 Circulaire,,,
 Décret,,,
+Code,Code civil,,

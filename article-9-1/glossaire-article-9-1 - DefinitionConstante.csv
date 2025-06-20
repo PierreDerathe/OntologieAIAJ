@@ -1,0 +1,9 @@
+Nom,Type de valeur,Valeur,Unité de mesure
+Abrogé,enum,,
+En vigueur,enum,,
+Livre,Cardinal,0,
+Titre,Cardinal,1,
+Chapitre,Cardinal,2,
+Section,Cardinal,3,
+Paragraphe,Cardinal,4,
+Article,Cardinal,10,

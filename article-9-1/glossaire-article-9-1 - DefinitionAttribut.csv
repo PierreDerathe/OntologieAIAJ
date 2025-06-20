@@ -1,0 +1,10 @@
+Nom d'attribut,Nom de concept,Type des valeurs,Portée des valeurs,Cardinality
+url Légifrance,Ressource Légale,(xsd:anyURI or xsd:string),-,1-n
+date de publication,Ressource Légale,xsd:date,-,1-1
+date d'entrée en application,Ressource Légale,xsd:date,-,1-1
+date de fin d'application,Ressource Légale,xsd:date,-,1-1
+ELI,Ressource Légale,(xsd:anyURI or xsd:string),-,0-n
+contenu textuel,Document,xsd:string,-,0-1
+titre,Document,xsd:string,-,1-1
+titre abrégé,Document,xsd:string,-,0-1
+numéro de partie,Sous-partie de ressource Légale,xsd:string,-,

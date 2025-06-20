@@ -1,0 +1,19 @@
+Nom de relation,Concept source,Cardinalité Max de la source,Concept cible,Relation inverse
+type_sous_partie,Sous-partie de Document,1,Type de sous-partie,-
+état_application,Ressource Légale,1,Etat d'application,-
+cite,Ressource Légale,N,Ressource Légale,cité_par
+cité_par,Ressource Légale,N,Ressource Légale,cite
+modifie,Ressource Légale,N,Ressource Légale,modifié_par
+modifié_par,Ressource Légale,N,Ressource Légale,modifie
+codifie,Ressource Légale,N,Ressource Légale,codifié_par
+codifié_par,Ressource Légale,N,Ressource Légale,codifie
+crée,Ressource Légale,N,Ressource Légale,créé_par
+créé_par,Ressource Légale,1,Ressource Légale,crée
+abroge,Ressource Légale,N,Ressource Légale,abrogé_par
+abrogé_par,Ressource Légale,1,Ressource Légale,abroge
+publie,Publication officielle,N,Ressource Légale,publié_dans
+publié_dans,Ressource Légale,1,Publication officielle,publie
+relative à,Ressource Légale,N,Document,
+has_part,Document,N,Sous-partie de travail,part_of
+version,Texte Consolidé,1,Version Légale,version_de
+version_de,Version Légale,N,Texte Consolidé,version
