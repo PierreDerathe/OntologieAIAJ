@@ -1,0 +1,370 @@
+@prefix : <http://www.semanticweb.org/pierre/ontologies/2025/5/code-civil-ontology//> .
+@prefix dc: <http://purl.org/dc/elements/1.1/> .
+@prefix eli: <http://data.europa.eu/eli/ontology#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix xml: <http://www.w3.org/XML/1998/namespace> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix skos: <http://www.w3.org/2004/02/skos/core#> .
+@base <http://www.semanticweb.org/pierre/ontologies/2025/5/code-civil-ontology//> .
+
+<http://www.semanticweb.org/pierre/ontologies/2025/5/code-civil-ontology/> rdf:type owl:Ontology .
+
+#################################################################
+#    Object Properties
+#################################################################
+
+###  http://www.semanticweb.org/pierre/ontologies/2025/5/code-civil-ontology/abroge
+:abroge rdf:type owl:ObjectProperty ;
+        rdfs:subPropertyOf :change .
+
+
+###  http://www.semanticweb.org/pierre/ontologies/2025/5/code-civil-ontology/abroge_par
+:abroge_par rdf:type owl:ObjectProperty ;
+            rdfs:subPropertyOf :change_par .
+
+
+###  http://www.semanticweb.org/pierre/ontologies/2025/5/code-civil-ontology/change
+:change rdf:type owl:ObjectProperty ;
+        rdfs:subPropertyOf owl:topObjectProperty ;
+        owl:inverseOf :change_par .
+
+
+###  http://www.semanticweb.org/pierre/ontologies/2025/5/code-civil-ontology/change_par
+:change_par rdf:type owl:ObjectProperty ;
+            rdfs:subPropertyOf owl:topObjectProperty ;
+            rdfs:domain :RessourceLegale ;
+            rdfs:range :RessourceLegale .
+
+
+###  http://www.semanticweb.org/pierre/ontologies/2025/5/code-civil-ontology/cite
+:cite rdf:type owl:ObjectProperty ;
+      rdfs:subPropertyOf owl:topObjectProperty ;
+      owl:inverseOf :cite_par ;
+      rdfs:domain :RessourceLegale ;
+      rdfs:range :RessourceLegale .
+
+
+###  http://www.semanticweb.org/pierre/ontologies/2025/5/code-civil-ontology/cite_par
+:cite_par rdf:type owl:ObjectProperty ;
+          rdfs:subPropertyOf owl:topObjectProperty .
+
+
+###  http://www.semanticweb.org/pierre/ontologies/2025/5/code-civil-ontology/codifie
+:codifie rdf:type owl:ObjectProperty ;
+         rdfs:subPropertyOf :change .
+
+
+###  http://www.semanticweb.org/pierre/ontologies/2025/5/code-civil-ontology/codifie_par
+:codifie_par rdf:type owl:ObjectProperty ;
+             rdfs:subPropertyOf :change_par .
+
+
+###  http://www.semanticweb.org/pierre/ontologies/2025/5/code-civil-ontology/cree
+:cree rdf:type owl:ObjectProperty ;
+      rdfs:subPropertyOf :change .
+
+
+###  http://www.semanticweb.org/pierre/ontologies/2025/5/code-civil-ontology/cree_par
+:cree_par rdf:type owl:ObjectProperty ;
+          rdfs:subPropertyOf :change_par .
+
+
+###  http://www.semanticweb.org/pierre/ontologies/2025/5/code-civil-ontology/etat_application
+:etat_application rdf:type owl:ObjectProperty ;
+                  rdfs:subPropertyOf owl:topObjectProperty ;
+                  rdfs:domain :RessourceLegale ;
+                  rdfs:range :EtatApplication .
+
+
+###  http://www.semanticweb.org/pierre/ontologies/2025/5/code-civil-ontology/has_part
+:has_part rdf:type owl:ObjectProperty ;
+          rdfs:subPropertyOf owl:topObjectProperty .
+
+
+###  http://www.semanticweb.org/pierre/ontologies/2025/5/code-civil-ontology/modifie
+:modifie rdf:type owl:ObjectProperty ;
+         rdfs:subPropertyOf :change .
+
+
+###  http://www.semanticweb.org/pierre/ontologies/2025/5/code-civil-ontology/modifie_par
+:modifie_par rdf:type owl:ObjectProperty ;
+             rdfs:subPropertyOf :change_par .
+
+
+###  http://www.semanticweb.org/pierre/ontologies/2025/5/code-civil-ontology/part_of
+:part_of rdf:type owl:ObjectProperty ;
+         rdfs:subPropertyOf owl:topObjectProperty .
+
+
+###  http://www.semanticweb.org/pierre/ontologies/2025/5/code-civil-ontology/publie
+:publie rdf:type owl:ObjectProperty ;
+        rdfs:subPropertyOf :has_part ;
+        owl:inverseOf :publie_dans ;
+        rdf:type owl:IrreflexiveProperty ;
+        rdfs:domain :PublicationOfficielle ;
+        rdfs:range :RessourceLegale .
+
+
+###  http://www.semanticweb.org/pierre/ontologies/2025/5/code-civil-ontology/publie_dans
+:publie_dans rdf:type owl:ObjectProperty ;
+             rdfs:subPropertyOf :part_of .
+
+
+###  http://www.semanticweb.org/pierre/ontologies/2025/5/code-civil-ontology/relative_a
+:relative_a rdf:type owl:ObjectProperty ;
+            rdfs:subPropertyOf owl:topObjectProperty ;
+            rdf:type owl:SymmetricProperty ;
+            rdfs:domain :Document ;
+            rdfs:range :Document .
+
+
+###  http://www.semanticweb.org/pierre/ontologies/2025/5/code-civil-ontology/version
+:version rdf:type owl:ObjectProperty ;
+         rdfs:subPropertyOf owl:topObjectProperty ;
+         owl:inverseOf :version_de ;
+         rdf:type owl:InverseFunctionalProperty ;
+         rdfs:domain :TexteConsolide ;
+         rdfs:range :VersionLegale .
+
+
+###  http://www.semanticweb.org/pierre/ontologies/2025/5/code-civil-ontology/version_actuelle
+:version_actuelle rdf:type owl:ObjectProperty ;
+                  rdfs:subPropertyOf :version ;
+                  rdf:type owl:FunctionalProperty ,
+                           owl:InverseFunctionalProperty .
+
+
+###  http://www.semanticweb.org/pierre/ontologies/2025/5/code-civil-ontology/version_de
+:version_de rdf:type owl:ObjectProperty ;
+            rdfs:subPropertyOf owl:topObjectProperty ;
+            rdf:type owl:FunctionalProperty .
+
+
+#################################################################
+#    Data properties
+#################################################################
+
+###  http://www.semanticweb.org/pierre/ontologies/2025/5/code-civil-ontology/date
+:date rdf:type owl:DatatypeProperty ;
+      rdfs:range rdfs:Literal .
+
+
+###  http://www.semanticweb.org/pierre/ontologies/2025/5/code-civil-ontology/date_abrogation
+:date_abrogation rdf:type owl:DatatypeProperty ;
+                 rdfs:subPropertyOf :date ;
+                 rdfs:domain :RessourceLegale .
+
+
+###  http://www.semanticweb.org/pierre/ontologies/2025/5/code-civil-ontology/date_application
+:date_application rdf:type owl:DatatypeProperty ;
+                  rdfs:subPropertyOf :date ;
+                  rdfs:domain :RessourceLegale .
+
+
+###  http://www.semanticweb.org/pierre/ontologies/2025/5/code-civil-ontology/date_creation
+:date_creation rdf:type owl:DatatypeProperty ;
+               rdfs:subPropertyOf :date ;
+               rdfs:comment "Date de création de la ressource"@fr ;
+               rdfs:label "Date de création"@fr .
+
+
+###  http://www.semanticweb.org/pierre/ontologies/2025/5/code-civil-ontology/description
+:description rdf:type owl:DatatypeProperty ;
+             rdfs:domain :Document ;
+             rdfs:range rdfs:Literal .
+
+
+###  http://www.semanticweb.org/pierre/ontologies/2025/5/code-civil-ontology/eli
+:eli rdf:type owl:DatatypeProperty ;
+     rdfs:domain :RessourceLegale ;
+     rdfs:range [ rdf:type rdfs:Datatype ;
+                  owl:unionOf ( xsd:anyURI
+                                xsd:string
+                              )
+                ] ;
+     rdfs:label "European Legislation Identifier (ELI)"@en .
+
+
+###  http://www.semanticweb.org/pierre/ontologies/2025/5/code-civil-ontology/titre
+:titre rdf:type owl:DatatypeProperty ;
+       rdfs:subPropertyOf owl:topDataProperty ;
+       rdfs:range rdfs:Literal .
+
+
+###  http://www.semanticweb.org/pierre/ontologies/2025/5/code-civil-ontology/titre_parties
+:titre_parties rdf:type owl:DatatypeProperty ;
+               rdfs:domain :Document ;
+               rdfs:range rdfs:Literal .
+
+
+###  http://www.semanticweb.org/pierre/ontologies/2025/5/code-civil-ontology/url_legifrance
+:url_legifrance rdf:type owl:DatatypeProperty ;
+                rdfs:domain :RessourceLegale ;
+                rdfs:range rdfs:Literal .
+
+
+#################################################################
+#    Classes
+#################################################################
+
+###  http://www.semanticweb.org/pierre/ontologies/2025/5/code-civil-ontology/Arrete
+:Arrete rdf:type owl:Class ;
+        rdfs:subClassOf :RessourceLegale .
+
+
+###  http://www.semanticweb.org/pierre/ontologies/2025/5/code-civil-ontology/Article
+:Article rdf:type owl:Class ;
+         rdfs:subClassOf :SousPartieRessourceLegale .
+
+
+###  http://www.semanticweb.org/pierre/ontologies/2025/5/code-civil-ontology/Chapitre
+:Chapitre rdf:type owl:Class ;
+          rdfs:subClassOf :SousPartieRessourceLegale .
+
+
+###  http://www.semanticweb.org/pierre/ontologies/2025/5/code-civil-ontology/Circulaire
+:Circulaire rdf:type owl:Class ;
+            rdfs:subClassOf :RessourceLegale .
+
+
+###  http://www.semanticweb.org/pierre/ontologies/2025/5/code-civil-ontology/Code
+:Code rdf:type owl:Class ;
+      rdfs:subClassOf :RessourceLegale .
+
+
+###  http://www.semanticweb.org/pierre/ontologies/2025/5/code-civil-ontology/Concept
+:Concept rdf:type owl:Class .
+
+
+###  http://www.semanticweb.org/pierre/ontologies/2025/5/code-civil-ontology/Decision
+:Decision rdf:type owl:Class ;
+          rdfs:subClassOf :RessourceLegale .
+
+
+###  http://www.semanticweb.org/pierre/ontologies/2025/5/code-civil-ontology/Decret
+:Decret rdf:type owl:Class ;
+        rdfs:subClassOf :RessourceLegale .
+
+
+###  http://www.semanticweb.org/pierre/ontologies/2025/5/code-civil-ontology/Document
+:Document rdf:type owl:Class .
+
+
+###  http://www.semanticweb.org/pierre/ontologies/2025/5/code-civil-ontology/EtatApplication
+:EtatApplication rdf:type owl:Class ;
+                 owl:equivalentClass [ rdf:type owl:Class ;
+                                       owl:oneOf ( :Abroge
+                                                   :EnVigueur
+                                                 )
+                                     ] ;
+                 rdfs:subClassOf :Concept .
+
+
+###  http://www.semanticweb.org/pierre/ontologies/2025/5/code-civil-ontology/Livre
+:Livre rdf:type owl:Class ;
+       rdfs:subClassOf :SousPartieRessourceLegale .
+
+
+###  http://www.semanticweb.org/pierre/ontologies/2025/5/code-civil-ontology/Loi
+:Loi rdf:type owl:Class ;
+     rdfs:subClassOf :RessourceLegale .
+
+
+###  http://www.semanticweb.org/pierre/ontologies/2025/5/code-civil-ontology/Ordonnance
+:Ordonnance rdf:type owl:Class ;
+            rdfs:subClassOf :RessourceLegale .
+
+
+###  http://www.semanticweb.org/pierre/ontologies/2025/5/code-civil-ontology/Paragraphe
+:Paragraphe rdf:type owl:Class ;
+            rdfs:subClassOf :SousPartieRessourceLegale .
+
+
+###  http://www.semanticweb.org/pierre/ontologies/2025/5/code-civil-ontology/PublicationOfficielle
+:PublicationOfficielle rdf:type owl:Class ;
+                       rdfs:subClassOf :RessourceLegale .
+
+
+###  http://www.semanticweb.org/pierre/ontologies/2025/5/code-civil-ontology/RessourceLegale
+:RessourceLegale rdf:type owl:Class ;
+                 rdfs:subClassOf :Document .
+
+
+###  http://www.semanticweb.org/pierre/ontologies/2025/5/code-civil-ontology/Section
+:Section rdf:type owl:Class ;
+         rdfs:subClassOf :SousPartieRessourceLegale .
+
+
+###  http://www.semanticweb.org/pierre/ontologies/2025/5/code-civil-ontology/SousPartieDocument
+:SousPartieDocument rdf:type owl:Class ;
+                    rdfs:subClassOf :Document .
+
+
+###  http://www.semanticweb.org/pierre/ontologies/2025/5/code-civil-ontology/SousPartieRessourceLegale
+:SousPartieRessourceLegale rdf:type owl:Class ;
+                           rdfs:subClassOf :RessourceLegale ,
+                                           :SousPartieDocument .
+
+
+###  http://www.semanticweb.org/pierre/ontologies/2025/5/code-civil-ontology/TexteConsolide
+:TexteConsolide rdf:type owl:Class ;
+                rdfs:subClassOf :RessourceLegale .
+
+
+###  http://www.semanticweb.org/pierre/ontologies/2025/5/code-civil-ontology/Titre
+:Titre rdf:type owl:Class ;
+       rdfs:subClassOf :SousPartieRessourceLegale .
+
+
+###  http://www.semanticweb.org/pierre/ontologies/2025/5/code-civil-ontology/VersionLegale
+:VersionLegale rdf:type owl:Class ;
+               rdfs:subClassOf :RessourceLegale .
+
+
+#################################################################
+#    Individuals
+#################################################################
+
+###  http://www.semanticweb.org/pierre/ontologies/2025/5/code-civil-ontology/Abroge
+:Abroge rdf:type owl:NamedIndividual .
+
+
+###  http://www.semanticweb.org/pierre/ontologies/2025/5/code-civil-ontology/EnVigueur
+:EnVigueur rdf:type owl:NamedIndividual ,
+                    :EtatApplication .
+
+
+#################################################################
+#    General axioms
+#################################################################
+
+[ rdf:type owl:AllDisjointClasses ;
+  owl:members ( :Arrete
+                :Circulaire
+                :Code
+                :Decision
+                :Decret
+                :Loi
+                :Ordonnance
+                :PublicationOfficielle
+                :SousPartieRessourceLegale
+                :TexteConsolide
+                :VersionLegale
+              )
+] .
+
+
+[ rdf:type owl:AllDisjointClasses ;
+  owl:members ( :Article
+                :Chapitre
+                :Livre
+                :Paragraphe
+                :Section
+                :Titre
+              )
+] .
+
+
+###  Generated by the OWL API (version 4.5.29.2024-05-13T12:11:03Z) https://github.com/owlcs/owlapi
