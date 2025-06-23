@@ -23,14 +23,26 @@ On constate dés cette étape que se baser sur les termes du code civil est limi
 - Sous-partie de Document
 - Publication officielle
 
-Aussi, les question de partition et de décomposition exaustive ne sont pas approchable du au manque d'information personnel et dans l'exemple du code civil.
+La question de la décomposition disjointe sera utile pour determiner les classes disjointes lors de la création de l'ontologie. Ceci dit, les question de partition et de décomposition exaustive ne sont pas approchable du au manque d'information personnel et dans l'exemple du code civil.
+
+Certains 
 
 ![Taxonomie et diagramme](/article-9-1/Taxonomie-article-9-1.drawio.png)
 
-## Taxonomie et [définitions des relations](/article-9-1/article-9-1%20-%20DefinitionRelation.csv)
+## [Définitions des relations](/article-9-1/article-9-1%20-%20DefinitionRelation.csv)
 
-La relation d'appartenance `has_part` a commencé spécifique aux ressources légales mais une utilisation général a été nécéssaire. Des relation d'appartenance plus spécifique pourront être définit, par exemple `publie`. 
+La relation d'appartenance `has_part` a commencé spécifique aux ressources légales mais une utilisation général sera nécéssaire. Des relation d'appartenance plus spécifique pourront être définit, par exemple `publie` ou `version_de`.
 
 Une relation générique `change` pour rassembler `modifie`, `codifie`, `cree`, `abroge` sera rajouter. corriger les diagrammes.
 
 La plupart des relations avec une cardinalité max de 1 devront probablement être corrigé: Un article peut être creer par une loi et un article de cette loi , donc deux entités différentes sauf l'appartenance peut être pris en compte.
+
+Ajout de `version_actuelle` pour préciser la version en application d'un texte consolidé. Il faudra une refléxion plus poussé pour l'utilisation des versions et texte consolidé (un attribut description_actuelle est ajouté).
+
+## [Définitions des attributs](/article-9-1/article-9-1%20-%20DefinitionAttribut.csv)
+
+Différent attribut de date (application, création...) qui peuvent demander des point dans le temps ou des périodes.
+
+Des possibilité d'intégrations en particulier avec dcterms est explorer(indentifier, date, description...) mais pour l'instant mis de côté dans la création de l'ontologie.
+
+

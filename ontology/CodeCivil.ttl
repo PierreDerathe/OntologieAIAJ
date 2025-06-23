@@ -17,7 +17,8 @@
 
 ###  http://www.semanticweb.org/pierre/ontologies/2025/5/code-civil-ontology/abroge
 :abroge rdf:type owl:ObjectProperty ;
-        rdfs:subPropertyOf :change .
+        rdfs:subPropertyOf :change ;
+        owl:inverseOf :abroge_par .
 
 
 ###  http://www.semanticweb.org/pierre/ontologies/2025/5/code-civil-ontology/abroge_par
@@ -53,7 +54,8 @@
 
 ###  http://www.semanticweb.org/pierre/ontologies/2025/5/code-civil-ontology/codifie
 :codifie rdf:type owl:ObjectProperty ;
-         rdfs:subPropertyOf :change .
+         rdfs:subPropertyOf :change ;
+         owl:inverseOf :codifie_par .
 
 
 ###  http://www.semanticweb.org/pierre/ontologies/2025/5/code-civil-ontology/codifie_par
@@ -63,7 +65,8 @@
 
 ###  http://www.semanticweb.org/pierre/ontologies/2025/5/code-civil-ontology/cree
 :cree rdf:type owl:ObjectProperty ;
-      rdfs:subPropertyOf :change .
+      rdfs:subPropertyOf :change ;
+      owl:inverseOf :cree_par .
 
 
 ###  http://www.semanticweb.org/pierre/ontologies/2025/5/code-civil-ontology/cree_par
@@ -80,12 +83,23 @@
 
 ###  http://www.semanticweb.org/pierre/ontologies/2025/5/code-civil-ontology/has_part
 :has_part rdf:type owl:ObjectProperty ;
-          rdfs:subPropertyOf owl:topObjectProperty .
+          rdfs:subPropertyOf owl:topObjectProperty ;
+          owl:inverseOf :part_of ;
+          rdf:type owl:TransitiveProperty .
+
+
+###  http://www.semanticweb.org/pierre/ontologies/2025/5/code-civil-ontology/informations_pratiques
+:informations_pratiques rdf:type owl:ObjectProperty ;
+                        rdfs:subPropertyOf owl:topObjectProperty ;
+                        rdf:type owl:SymmetricProperty ;
+                        rdfs:domain :Document ;
+                        rdfs:range :Document .
 
 
 ###  http://www.semanticweb.org/pierre/ontologies/2025/5/code-civil-ontology/modifie
 :modifie rdf:type owl:ObjectProperty ;
-         rdfs:subPropertyOf :change .
+         rdfs:subPropertyOf :change ;
+         owl:inverseOf :modifie_par .
 
 
 ###  http://www.semanticweb.org/pierre/ontologies/2025/5/code-civil-ontology/modifie_par
@@ -95,12 +109,13 @@
 
 ###  http://www.semanticweb.org/pierre/ontologies/2025/5/code-civil-ontology/part_of
 :part_of rdf:type owl:ObjectProperty ;
-         rdfs:subPropertyOf owl:topObjectProperty .
+         rdfs:subPropertyOf owl:topObjectProperty ;
+         rdf:type owl:TransitiveProperty .
 
 
 ###  http://www.semanticweb.org/pierre/ontologies/2025/5/code-civil-ontology/publie
 :publie rdf:type owl:ObjectProperty ;
-        rdfs:subPropertyOf :has_part ;
+        rdfs:subPropertyOf owl:topObjectProperty ;
         owl:inverseOf :publie_dans ;
         rdf:type owl:IrreflexiveProperty ;
         rdfs:domain :PublicationOfficielle ;
@@ -109,15 +124,7 @@
 
 ###  http://www.semanticweb.org/pierre/ontologies/2025/5/code-civil-ontology/publie_dans
 :publie_dans rdf:type owl:ObjectProperty ;
-             rdfs:subPropertyOf :part_of .
-
-
-###  http://www.semanticweb.org/pierre/ontologies/2025/5/code-civil-ontology/relative_a
-:relative_a rdf:type owl:ObjectProperty ;
-            rdfs:subPropertyOf owl:topObjectProperty ;
-            rdf:type owl:SymmetricProperty ;
-            rdfs:domain :Document ;
-            rdfs:range :Document .
+             rdfs:subPropertyOf owl:topObjectProperty .
 
 
 ###  http://www.semanticweb.org/pierre/ontologies/2025/5/code-civil-ontology/version
@@ -154,26 +161,42 @@
 ###  http://www.semanticweb.org/pierre/ontologies/2025/5/code-civil-ontology/date_abrogation
 :date_abrogation rdf:type owl:DatatypeProperty ;
                  rdfs:subPropertyOf :date ;
-                 rdfs:domain :RessourceLegale .
+                 rdfs:domain :RessourceLegale ;
+                 rdfs:range rdfs:Literal .
 
 
 ###  http://www.semanticweb.org/pierre/ontologies/2025/5/code-civil-ontology/date_application
 :date_application rdf:type owl:DatatypeProperty ;
                   rdfs:subPropertyOf :date ;
-                  rdfs:domain :RessourceLegale .
+                  rdfs:domain :RessourceLegale ;
+                  rdfs:range rdfs:Literal .
 
 
 ###  http://www.semanticweb.org/pierre/ontologies/2025/5/code-civil-ontology/date_creation
 :date_creation rdf:type owl:DatatypeProperty ;
                rdfs:subPropertyOf :date ;
+               rdfs:range rdfs:Literal ;
                rdfs:comment "Date de création de la ressource"@fr ;
                rdfs:label "Date de création"@fr .
+
+
+###  http://www.semanticweb.org/pierre/ontologies/2025/5/code-civil-ontology/date_modification
+:date_modification rdf:type owl:DatatypeProperty ;
+                   rdfs:subPropertyOf :date ;
+                   rdfs:range rdfs:Literal .
 
 
 ###  http://www.semanticweb.org/pierre/ontologies/2025/5/code-civil-ontology/description
 :description rdf:type owl:DatatypeProperty ;
              rdfs:domain :Document ;
              rdfs:range rdfs:Literal .
+
+
+###  http://www.semanticweb.org/pierre/ontologies/2025/5/code-civil-ontology/description_actuelle
+:description_actuelle rdf:type owl:DatatypeProperty ;
+                      rdfs:subPropertyOf :description ;
+                      rdfs:domain :TexteConsolide ;
+                      rdfs:range rdfs:Literal .
 
 
 ###  http://www.semanticweb.org/pierre/ontologies/2025/5/code-civil-ontology/eli
@@ -310,7 +333,8 @@
 
 ###  http://www.semanticweb.org/pierre/ontologies/2025/5/code-civil-ontology/TexteConsolide
 :TexteConsolide rdf:type owl:Class ;
-                rdfs:subClassOf :RessourceLegale .
+                rdfs:subClassOf :RessourceLegale ;
+                owl:disjointWith :VersionLegale .
 
 
 ###  http://www.semanticweb.org/pierre/ontologies/2025/5/code-civil-ontology/Titre
@@ -331,9 +355,136 @@
 :Abroge rdf:type owl:NamedIndividual .
 
 
+###  http://www.semanticweb.org/pierre/ontologies/2025/5/code-civil-ontology/CCArt9-1
+:CCArt9-1 rdf:type owl:NamedIndividual ,
+                   :Article ,
+                   :TexteConsolide ;
+          :etat_application :EnVigueur ;
+          :informations_pratiques :FicheDroitALImage ;
+          :version :CCArt9-1v1993-01-05 ,
+                   :CCArt9-1v1993-09-02 ,
+                   :CCArt9-1v1994-07-30 ;
+          :version_actuelle :CCArt9-1v2000-06-16 ;
+          :date_application "1993-01-05/" ;
+          :date_creation "1993-01-05" ;
+          :date_modification "1993-09-02" ,
+                             "1994-07-30" ,
+                             "2000-06-16" ;
+          :description_actuelle """Chacun a droit au respect de la présomption d'innocence.
+
+Lorsqu’une personne est, avant toute condamnation, présentée publiquement comme coupable de faits faisant l’objet d’une enquête ou d’une instruction judiciaire, le juge peut, même en référé, sans préjudice de la réparation du dommage subi, prescrire toutes mesures, telles que l’insertion d’une rectification ou la diffusion d’un communiqué, aux fins de faire cesser l’atteinte à la présomption d’innocence, et ce aux frais de la personne, physique ou morale, responsable de cette atteinte."""@fr ;
+          :titre "Code civil, article 9-1"@fr ;
+          :titre_parties "Code civil, Livre Ier : Des personnes, Titre Ier : Des droits civils, Article 9-1"@fr ;
+          :url_legifrance "https://www.legifrance.gouv.fr/codes/article_lc/LEGIARTI000006419316" .
+
+
+###  http://www.semanticweb.org/pierre/ontologies/2025/5/code-civil-ontology/CCArt9-1v1993-01-05
+:CCArt9-1v1993-01-05 rdf:type owl:NamedIndividual ,
+                              :Article ,
+                              :VersionLegale .
+
+
+###  http://www.semanticweb.org/pierre/ontologies/2025/5/code-civil-ontology/CCArt9-1v1993-09-02
+:CCArt9-1v1993-09-02 rdf:type owl:NamedIndividual ,
+                              :Article ,
+                              :VersionLegale .
+
+
+###  http://www.semanticweb.org/pierre/ontologies/2025/5/code-civil-ontology/CCArt9-1v1994-07-30
+:CCArt9-1v1994-07-30 rdf:type owl:NamedIndividual ,
+                              :Article ,
+                              :VersionLegale .
+
+
+###  http://www.semanticweb.org/pierre/ontologies/2025/5/code-civil-ontology/CCArt9-1v2000-06-16
+:CCArt9-1v2000-06-16 rdf:type owl:NamedIndividual ,
+                              :Article ,
+                              :VersionLegale ;
+                     :titre """Code Civil, Article 9-1
+
+Version en vigueur depuis le 16 juin 2000""" ;
+                     :url_legifrance """Chacun a droit au respect de la présomption d'innocence.
+
+Lorsqu’une personne est, avant toute condamnation, présentée publiquement comme coupable de faits faisant l’objet d’une enquête ou d’une instruction judiciaire, le juge peut, même en référé, sans préjudice de la réparation du dommage subi, prescrire toutes mesures, telles que l’insertion d’une rectification ou la diffusion d’un communiqué, aux fins de faire cesser l’atteinte à la présomption d’innocence, et ce aux frais de la personne, physique ou morale, responsable de cette atteinte.""" ,
+                                     "https://www.legifrance.gouv.fr/codes/article_lc/LEGIARTI000006419316/2000-06-16/" .
+
+
+###  http://www.semanticweb.org/pierre/ontologies/2025/5/code-civil-ontology/CCLivreIerDesPersonnes
+:CCLivreIerDesPersonnes rdf:type owl:NamedIndividual ,
+                                 :Livre ;
+                        :has_part :CCTitreIerDesDroitsCivils ;
+                        :titre "Code Civil, Livre Ier : Des personnes (Articles 7 à 515-13-1)" ;
+                        :url_legifrance "https://www.legifrance.gouv.fr/codes/section_lc/LEGITEXT000006070721/LEGISCTA000006089697/#LEGISCTA000006089697" .
+
+
+###  http://www.semanticweb.org/pierre/ontologies/2025/5/code-civil-ontology/CCTitreIerDesDroitsCivils
+:CCTitreIerDesDroitsCivils rdf:type owl:NamedIndividual ,
+                                    :Titre ;
+                           :has_part :CCArt9-1 ;
+                           :titre "Code Civil, Titre Ier : Des droits civils (Articles 7 à 16-14)" ;
+                           :url_legifrance "https://www.legifrance.gouv.fr/codes/section_lc/LEGITEXT000006070721/LEGISCTA000006117610/#LEGISCTA000006117610" .
+
+
+###  http://www.semanticweb.org/pierre/ontologies/2025/5/code-civil-ontology/CodeCivil
+:CodeCivil rdf:type owl:NamedIndividual ,
+                    :Code ;
+           :etat_application :EnVigueur ;
+           :has_part :CCLivreIerDesPersonnes ;
+           :titre "Code civil" ;
+           :url_legifrance "https://www.legifrance.gouv.fr/codes/texte_lc/LEGITEXT000006070721" .
+
+
 ###  http://www.semanticweb.org/pierre/ontologies/2025/5/code-civil-ontology/EnVigueur
 :EnVigueur rdf:type owl:NamedIndividual ,
                     :EtatApplication .
+
+
+###  http://www.semanticweb.org/pierre/ontologies/2025/5/code-civil-ontology/FicheDroitALImage
+:FicheDroitALImage rdf:type owl:NamedIndividual ,
+                            :Document ;
+                   :titre "Droit à l'image et respect de la vie privée" ;
+                   :url_legifrance "https://www.service-public.fr/particuliers/vosdroits/F32103" .
+
+
+###  http://www.semanticweb.org/pierre/ontologies/2025/5/code-civil-ontology/JORF2000-06-16
+:JORF2000-06-16 rdf:type owl:NamedIndividual ,
+                         :PublicationOfficielle ;
+                :publie :Loi2000-516 ;
+                :titre "Journal officiel \"Lois et Décrets\", JORF n° 0138 du 16 juin 2000" .
+
+
+###  http://www.semanticweb.org/pierre/ontologies/2025/5/code-civil-ontology/Loi2000-516
+:Loi2000-516 rdf:type owl:NamedIndividual ,
+                      :Loi ;
+             :titre "Loi n° 2000-516 du 15 juin 2000 renforçant la protection de la présomption d'innocence et les droits des victimes" ;
+             :url_legifrance "https://www.legifrance.gouv.fr/loda/id/JORFTEXT000000765204/" .
+
+
+###  http://www.semanticweb.org/pierre/ontologies/2025/5/code-civil-ontology/Loi2000-516Art91
+:Loi2000-516Art91 rdf:type owl:NamedIndividual ,
+                           :Article ;
+                  :modifie :CCArt9-1 ,
+                           :CCArt9-1v2000-06-16 ;
+                  :part_of :Loi2000-516 ;
+                  :description """A modifié les dispositions suivantes
+
+    Modifie Code civil - art. 9-1 (V)""" ;
+                  :titre "Article 91 de la loi n° 2000-516 du 15 juin 2000 renforçant la protection de la présomption d'innocence et les droits des victimes" ;
+                  :url_legifrance "https://www.legifrance.gouv.fr/loda/id/LEGIARTI000006493405/2000-06-16/" .
+
+
+###  http://www.semanticweb.org/pierre/ontologies/2025/5/code-civil-ontology/Ord96-267Art3
+:Ord96-267Art3 rdf:type owl:NamedIndividual ;
+               :cite :CCArt9-1 ;
+               :description """Pour son application dans les territoires d'outre-mer et à Mayotte, l'article 9-1 du code civil est ainsi rédigé :
+
+\" Art. 9-1. -
+
+Chacun a droit au respect de la présomption d'innocence.
+
+\" Lorsqu'une personne placée en garde à vue, mise en examen ou faisant l'objet d'une citation à comparaître en justice, d'un réquisitoire du procureur de la République ou d'une plainte avec constitution de partie civile, est, avant toute condamnation, présentée publiquement comme étant coupable de faits faisant l'objet de l'enquête ou de l'instruction judiciaire, le juge peut ordonner l'insertion dans la publication concernée d'un communiqué aux fins de faire cesser l'atteinte à la présomption d'innocence, sans préjudice d'une action en réparation des dommages subis et des autres mesures qui peuvent être prescrites en vertu des règles de procédure civile applicables localement et ce, aux frais de la personne, physique ou morale, responsable de l'atteinte à la présomption d'innocence. \"""" ;
+               :titre "Ordonnance n°96-267 du 28 mars 1996 - art. 3 (V)" ;
+               :url_legifrance "https://www.legifrance.gouv.fr/loda/id/LEGIARTI000006495402/#LEGIARTI000006495402" .
 
 
 #################################################################
@@ -349,9 +500,6 @@
                 :Loi
                 :Ordonnance
                 :PublicationOfficielle
-                :SousPartieRessourceLegale
-                :TexteConsolide
-                :VersionLegale
               )
 ] .
 
