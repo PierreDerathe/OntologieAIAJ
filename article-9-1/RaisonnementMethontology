@@ -45,4 +45,4 @@ Différent attribut de date (application, création...) qui peuvent demander des
 
 Des possibilité d'intégrations en particulier avec dcterms est explorer(indentifier, date, description...) mais pour l'instant mis de côté dans la création de l'ontologie.
 
-
+Important d'utiliser des type clair (xsd:string, xsd:dateTime) pour les attributs.

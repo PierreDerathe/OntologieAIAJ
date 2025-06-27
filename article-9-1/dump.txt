@@ -115,4 +115,8 @@ version
     version_actuelle
 version_de
 
-
+Comment et label
+Texte consolidé: un attribut?
+Version: En faire une liste en gardant uniquement les information commune
+Comment mettre a jour
+datatype des propriété
