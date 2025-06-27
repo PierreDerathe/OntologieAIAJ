@@ -132,8 +132,8 @@
          rdfs:subPropertyOf owl:topObjectProperty ;
          owl:inverseOf :version_de ;
          rdf:type owl:InverseFunctionalProperty ;
-         rdfs:domain :TexteConsolide ;
-         rdfs:range :VersionLegale .
+         rdfs:domain :Article ;
+         rdfs:range :ArticleVersion .
 
 
 ###  http://www.semanticweb.org/pierre/ontologies/2025/5/code-civil-ontology//version_actuelle
@@ -156,15 +156,23 @@
 ###  http://www.semanticweb.org/pierre/ontologies/2025/5/code-civil-ontology/date_en_vigueur_debut
 :date_en_vigueur_debut rdf:type owl:DatatypeProperty ;
                        rdfs:subPropertyOf :date ;
-                       rdfs:domain :VersionLegale ;
+                       rdfs:domain :ArticleVersion ;
                        rdfs:range xsd:dateTime .
 
 
 ###  http://www.semanticweb.org/pierre/ontologies/2025/5/code-civil-ontology/date_en_vigueur_fin
 :date_en_vigueur_fin rdf:type owl:DatatypeProperty ;
                      rdfs:subPropertyOf :date ;
-                     rdfs:domain :VersionLegale ;
+                     rdfs:domain :ArticleVersion ;
                      rdfs:range xsd:dateTime .
+
+
+###  http://www.semanticweb.org/pierre/ontologies/2025/5/code-civil-ontology/texte_consolidé
+:texte_consolidé rdf:type owl:DatatypeProperty ;
+                 rdfs:domain :Article ;
+                 rdfs:range xsd:boolean ;
+                 rdfs:comment "La consolidation des textes consiste lorsqu'un article de texte (ou de code) est modifié, à le réécrire en y intégrant la modification apportée. Les versions modifiées ou abrogées sont présentes dans le fonds documentaire au même titre que les versions en vigueur." ;
+                 rdfs:label "Texte consolidé" .
 
 
 ###  http://www.semanticweb.org/pierre/ontologies/2025/5/code-civil-ontology//date
@@ -199,7 +207,6 @@
 ###  http://www.semanticweb.org/pierre/ontologies/2025/5/code-civil-ontology//description_actuelle
 :description_actuelle rdf:type owl:DatatypeProperty ;
                       rdfs:subPropertyOf :description ;
-                      rdfs:domain :TexteConsolide ;
                       rdfs:range xsd:string .
 
 
@@ -243,7 +250,14 @@
 
 ###  http://www.semanticweb.org/pierre/ontologies/2025/5/code-civil-ontology//Article
 :Article rdf:type owl:Class ;
-         rdfs:subClassOf :SousPartieRessourceLegale .
+         rdfs:subClassOf :SousPartieRessourceLegale ;
+         rdfs:comment "Un article est une prescription contenue dans un texte législatif." ;
+         rdfs:label "Article" .
+
+
+###  http://www.semanticweb.org/pierre/ontologies/2025/5/code-civil-ontology//ArticleVersion
+:ArticleVersion rdf:type owl:Class ;
+                rdfs:subClassOf :SousPartieRessourceLegale .
 
 
 ###  http://www.semanticweb.org/pierre/ontologies/2025/5/code-civil-ontology//Chapitre
@@ -335,20 +349,9 @@
                                            :SousPartieDocument .
 
 
-###  http://www.semanticweb.org/pierre/ontologies/2025/5/code-civil-ontology//TexteConsolide
-:TexteConsolide rdf:type owl:Class ;
-                rdfs:subClassOf :RessourceLegale ;
-                owl:disjointWith :VersionLegale .
-
-
 ###  http://www.semanticweb.org/pierre/ontologies/2025/5/code-civil-ontology//Titre
 :Titre rdf:type owl:Class ;
        rdfs:subClassOf :SousPartieRessourceLegale .
-
-
-###  http://www.semanticweb.org/pierre/ontologies/2025/5/code-civil-ontology//VersionLegale
-:VersionLegale rdf:type owl:Class ;
-               rdfs:subClassOf :RessourceLegale .
 
 
 #################################################################
@@ -362,52 +365,61 @@
 
 ###  http://www.semanticweb.org/pierre/ontologies/2025/5/code-civil-ontology//CCArt9-1
 :CCArt9-1 rdf:type owl:NamedIndividual ,
-                   :Article ,
-                   :TexteConsolide ;
+                   :Article ;
           :etat_application :EnVigueur ;
           :informations_pratiques :FicheDroitALImage ;
           :version :CCArt9-1v1993-01-05 ,
                    :CCArt9-1v1993-09-02 ,
                    :CCArt9-1v1994-07-30 ;
           :version_actuelle :CCArt9-1v2000-06-16 ;
+          :texte_consolidé "true"^^xsd:boolean ;
           :date_creation "1993-01-05T00:00:00"^^xsd:dateTime ;
-          :date_modification "1993-09-02T00:00:00"^^xsd:dateTime ,
-                             "1994-07-30T00:00:00"^^xsd:dateTime ,
-                             "2000-06-16T00:00:00"^^xsd:dateTime ;
-          :titre_parties "Code civil, Livre Ier : Des personnes, Titre Ier : Des droits civils, Article 9-1" ,
-                         "Code civil, article 9-1" ;
+          :titre "Code civil, article 9-1" ;
+          :titre_parties "Code civil, Livre Ier : Des personnes, Titre Ier : Des droits civils, Article 9-1" ;
           :url_legifrance "https://www.legifrance.gouv.fr/codes/article_lc/LEGIARTI000006419316" .
 
 
 ###  http://www.semanticweb.org/pierre/ontologies/2025/5/code-civil-ontology//CCArt9-1v1993-01-05
 :CCArt9-1v1993-01-05 rdf:type owl:NamedIndividual ,
                               :Article ,
-                              :VersionLegale .
+                              :ArticleVersion ;
+                     :date_en_vigueur_debut "1993-01-05T00:00:00"^^xsd:dateTime ;
+                     :date_en_vigueur_fin "1993-09-02T00:00:00"^^xsd:dateTime ;
+                     :description """Chacun a droit au respect de la présomption d'innocence.
+
+Lorsqu'une personne est, avant toute condamnation, présentée publiquement comme étant coupable de faits faisant l'objet d'une enquête ou d'une instruction judiciaire, le juge peut, même en référé, ordonner l'insertion d'une rectification ou la diffusion d'un communiqué aux fins de faire cesser l'atteinte à la présomption d'innocence, sans préjudice d'une action en réparation des dommages subis et des autres mesures qui peuvent être prescrites en application du nouveau code de procédure civile et ce, aux frais de la personne, physique ou morale, responsable de l'atteinte à la présomption d'innocence.""" ;
+                     :url_legifrance "https://www.legifrance.gouv.fr/codes/article_lc/LEGIARTI000006419314/1993-01-05/" .
 
 
 ###  http://www.semanticweb.org/pierre/ontologies/2025/5/code-civil-ontology//CCArt9-1v1993-09-02
 :CCArt9-1v1993-09-02 rdf:type owl:NamedIndividual ,
                               :Article ,
-                              :VersionLegale .
+                              :ArticleVersion ;
+                     :date_en_vigueur_debut "1993-09-02T00:00:00"^^xsd:dateTime ;
+                     :date_en_vigueur_fin "1994-07-30T00:00:00"^^xsd:dateTime .
 
 
 ###  http://www.semanticweb.org/pierre/ontologies/2025/5/code-civil-ontology//CCArt9-1v1994-07-30
 :CCArt9-1v1994-07-30 rdf:type owl:NamedIndividual ,
                               :Article ,
-                              :VersionLegale .
+                              :ArticleVersion ;
+                     :date_en_vigueur_debut "1994-07-30T00:00:00"^^xsd:dateTime ;
+                     :date_en_vigueur_fin "2000-06-16T00:00:00"^^xsd:dateTime ;
+                     :description """Chacun a droit au respect de la présomption d'innocence.
+
+Lorsqu'une personne placée en garde à vue, mise en examen ou faisant l'objet d'une citation à comparaître en justice, d'un réquisitoire du procureur de la République ou d'une plainte avec constitution de partie civile, est, avant toute condamnation, présentée publiquement comme étant coupable de faits faisant l'objet de l'enquête ou de l'instruction judiciaire, le juge peut, même en référé, ordonner l'insertion dans la publication concernée d'un communiqué aux fins de faire cesser l'atteinte à la présomption d'innocence, sans préjudice d'une action en réparation des dommages subis et des autres mesures qui peuvent être prescrites en application du nouveau code de procédure civile et ce, aux frais de la personne, physique ou morale, responsable de l'atteinte à la présomption d'innocence.""" ;
+                     :url_legifrance "https://www.legifrance.gouv.fr/codes/article_lc/LEGIARTI000006419315/1994-07-30/" .
 
 
 ###  http://www.semanticweb.org/pierre/ontologies/2025/5/code-civil-ontology//CCArt9-1v2000-06-16
 :CCArt9-1v2000-06-16 rdf:type owl:NamedIndividual ,
                               :Article ,
-                              :VersionLegale ;
-                     :titre """Code Civil, Article 9-1
+                              :ArticleVersion ;
+                     :date_en_vigueur_debut "2000-06-16T00:00:00"^^xsd:dateTime ;
+                     :description """Chacun a droit au respect de la présomption d'innocence.
 
-Version en vigueur depuis le 16 juin 2000""" ;
-                     :url_legifrance """Chacun a droit au respect de la présomption d'innocence.
-
-Lorsqu’une personne est, avant toute condamnation, présentée publiquement comme coupable de faits faisant l’objet d’une enquête ou d’une instruction judiciaire, le juge peut, même en référé, sans préjudice de la réparation du dommage subi, prescrire toutes mesures, telles que l’insertion d’une rectification ou la diffusion d’un communiqué, aux fins de faire cesser l’atteinte à la présomption d’innocence, et ce aux frais de la personne, physique ou morale, responsable de cette atteinte.""" ,
-                                     "https://www.legifrance.gouv.fr/codes/article_lc/LEGIARTI000006419316/2000-06-16/" .
+Lorsqu’une personne est, avant toute condamnation, présentée publiquement comme coupable de faits faisant l’objet d’une enquête ou d’une instruction judiciaire, le juge peut, même en référé, sans préjudice de la réparation du dommage subi, prescrire toutes mesures, telles que l’insertion d’une rectification ou la diffusion d’un communiqué, aux fins de faire cesser l’atteinte à la présomption d’innocence, et ce aux frais de la personne, physique ou morale, responsable de cette atteinte.""" ;
+                     :url_legifrance "https://www.legifrance.gouv.fr/codes/article_lc/LEGIARTI000006419316/2000-06-16/" .
 
 
 ###  http://www.semanticweb.org/pierre/ontologies/2025/5/code-civil-ontology//CCLivreIerDesPersonnes

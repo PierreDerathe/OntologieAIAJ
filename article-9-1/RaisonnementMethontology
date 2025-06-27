@@ -46,3 +46,49 @@ Différent attribut de date (application, création...) qui peuvent demander des
 Des possibilité d'intégrations en particulier avec dcterms est explorer(indentifier, date, description...) mais pour l'instant mis de côté dans la création de l'ontologie.
 
 Important d'utiliser des type clair (xsd:string, xsd:dateTime) pour les attributs.
+
+
+## Gestion des versions
+
+La première proposition était:
+
+- Les relations `version` et `version_de` expriment les liens entre version et document principale
+- La classe TexteConsolide exprime que une ressource légale à des version et est donc le domaine de `version`
+- La classe VersionLegale représente les versions
+- La relation `version_actuelle` est une sous-relation de `version` pour désigner la version valable actuelle. Peut être a renommer `version_en_vigeur`
+- Les dates de création, abrogation et modification sont contenue dans le TexteConsolide
+
+Deuxième proposition:
+
+```ttl
+:version rdf:type owl:ObjectProperty ;
+         owl:inverseOf :version_de ;
+         rdf:type owl:InverseFunctionalProperty ;
+         rdfs:domain :Article ;
+         rdfs:range :VersionLegale .
+```
+
+- Définition de texte consolidé: La consolidation des textes consiste lorsqu'un article de texte (ou de code) est modifié, à le réécrire en y intégrant la modification apportée. Les versions modifiées ou abrogées sont présentes dans le fonds documentaire au même titre que les versions en vigueur.
+- Data property `texte_consolide` boolean pour si un article à plusieurs versions.
+- Les dates de début et de fin d'une version en vigueur seront dans les Version .
+- Les dates de création et d'abrogation sont dans l'Article. Suppression de date de modification.
+- Distingué les propriétés commune et propre a chaque versions.
+- La loi qui modifie un article pointe vers l'Article ou la VersionLegale mise en vigueur par la loi ou la version plus valable a cause de la loi?
+
+Exemple de query pour récupérer la description d'un article à une période précise (non-testé):
+
+```sparql
+SELECT ?version ?description
+WHERE {
+  :CCArt9-1 :version ?version .
+  ?version a :ArticleVersion ;
+           :date_en_vigueur_debut ?start .
+  OPTIONAL { ?version :date_en_vigueur_fin ?end . }
+  OPTIONAL { ?version :description ?description . }
+
+  FILTER (
+    xsd:dateTime("1996-01-01T00:00:00") >= ?start &&
+    (!BOUND(?end) || xsd:dateTime("1996-01-01T00:00:00") < ?end)
+  )
+}
+```
