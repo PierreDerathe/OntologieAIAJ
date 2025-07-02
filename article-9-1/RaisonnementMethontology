@@ -25,8 +25,6 @@ On constate dés cette étape que se baser sur les termes du code civil est limi
 
 La question de la décomposition disjointe sera utile pour determiner les classes disjointes lors de la création de l'ontologie. Ceci dit, les question de partition et de décomposition exaustive ne sont pas approchable du au manque d'information personnel et dans l'exemple du code civil.
 
-Certains 
-
 ![Taxonomie et diagramme](/article-9-1/Taxonomie-article-9-1.drawio.png)
 
 ## [Définitions des relations](/article-9-1/article-9-1%20-%20DefinitionRelation.csv)
@@ -46,7 +44,6 @@ Différent attribut de date (application, création...) qui peuvent demander des
 Des possibilité d'intégrations en particulier avec dcterms est explorer(indentifier, date, description...) mais pour l'instant mis de côté dans la création de l'ontologie.
 
 Important d'utiliser des type clair (xsd:string, xsd:dateTime) pour les attributs.
-
 
 ## Gestion des versions
 
@@ -92,3 +89,19 @@ WHERE {
   )
 }
 ```
+
+Un choix encore en attente est où placer ArticleVersion dans la taxonomie. Est-ce une sous-classe de Article ou de RessourceLegale? Faut-il créé une classe Version générique et comment la placé dans la taxonomie?
+
+### Limiter le nombre de classe
+
+[Ontologie 101](/ressources/ontology101.pdf) propose des guidelines pour quand introduire des nouvelles classes. Les sous-classes d'une classe ont généralement:
+
+- des propriétés additionnelles
+- des restrictions supplémentaires
+- participe à des retations différentes
+
+Dans l'ontologie, sauf certaines classes(PublicationOfficielle, Article), un certain nombre de classe n'ont, pour l'instant pas des caractéristiques pariculières(Loi, Décret, Chapitre, Paragraphe...).
+
+Je crée donc 2 classes génériques TypeRessourceLegale et TypeSousPartie avec les relations et les instances pour distinguer les différents types de ressource légale et de sous-partie sans caractéristique pariculière.
+
+Ce fonctionnement peut être adapté si des classes on des caractéristique spécifique qui nécéssite qu'elles soit créées.

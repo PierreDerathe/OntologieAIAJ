@@ -116,7 +116,19 @@ version
 version_de
 
 Comment et label
-Texte consolidé: un attribut?
 Version: En faire une liste en gardant uniquement les information commune
 Comment mettre a jour
 datatype des propriété
+
+Le type de sous-partie d'un document("Article", "Livre", "Chapitre", etc...).
+Une sous-partie ne peut avoir qu'un seul type.
+
+L'ontologie ne spécifie pas toutes les types possibles. D'autre types peuvent être proposéess.
+
+Le type de ressource légal("Code", "Loi", "Ordonnance", etc...).
+
+L'ontologie ne spécifie pas toutes les types possibles. D'autre types peuvent être proposéess.
+
+Une valeur indiquant si une ressource légale est en application. Ces valeurs sont:
+- en vigueur
+- abrogé

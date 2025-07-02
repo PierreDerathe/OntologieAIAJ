@@ -15,6 +15,18 @@
 #    Object Properties
 #################################################################
 
+###  http://www.semanticweb.org/pierre/ontologies/2025/5/code-civil-ontology/type_ressource_legale
+:type_ressource_legale rdf:type owl:ObjectProperty ;
+                       rdfs:domain :RessourceLegale ;
+                       rdfs:range :TypeRessourceLegale .
+
+
+###  http://www.semanticweb.org/pierre/ontologies/2025/5/code-civil-ontology/type_sous_partie
+:type_sous_partie rdf:type owl:ObjectProperty ;
+                  rdfs:domain :SousPartieDocument ;
+                  rdfs:range :TypeSousPartie .
+
+
 ###  http://www.semanticweb.org/pierre/ontologies/2025/5/code-civil-ontology//abroge
 :abroge rdf:type owl:ObjectProperty ;
         rdfs:subPropertyOf :change ;
@@ -78,7 +90,11 @@
 :etat_application rdf:type owl:ObjectProperty ;
                   rdfs:subPropertyOf owl:topObjectProperty ;
                   rdfs:domain :RessourceLegale ;
-                  rdfs:range :EtatApplication .
+                  rdfs:range :EtatApplication ;
+                  rdfs:comment """Une valeur indiquant si une ressource légale est en application. Ces valeurs sont:
+- en vigueur
+- abrogé""" ;
+                  rdfs:label "Etat d'application" .
 
 
 ###  http://www.semanticweb.org/pierre/ontologies/2025/5/code-civil-ontology//has_part
@@ -153,28 +169,6 @@
 #    Data properties
 #################################################################
 
-###  http://www.semanticweb.org/pierre/ontologies/2025/5/code-civil-ontology/date_en_vigueur_debut
-:date_en_vigueur_debut rdf:type owl:DatatypeProperty ;
-                       rdfs:subPropertyOf :date ;
-                       rdfs:domain :ArticleVersion ;
-                       rdfs:range xsd:dateTime .
-
-
-###  http://www.semanticweb.org/pierre/ontologies/2025/5/code-civil-ontology/date_en_vigueur_fin
-:date_en_vigueur_fin rdf:type owl:DatatypeProperty ;
-                     rdfs:subPropertyOf :date ;
-                     rdfs:domain :ArticleVersion ;
-                     rdfs:range xsd:dateTime .
-
-
-###  http://www.semanticweb.org/pierre/ontologies/2025/5/code-civil-ontology/texte_consolidé
-:texte_consolidé rdf:type owl:DatatypeProperty ;
-                 rdfs:domain :Article ;
-                 rdfs:range xsd:boolean ;
-                 rdfs:comment "La consolidation des textes consiste lorsqu'un article de texte (ou de code) est modifié, à le réécrire en y intégrant la modification apportée. Les versions modifiées ou abrogées sont présentes dans le fonds documentaire au même titre que les versions en vigueur." ;
-                 rdfs:label "Texte consolidé" .
-
-
 ###  http://www.semanticweb.org/pierre/ontologies/2025/5/code-civil-ontology//date
 :date rdf:type owl:DatatypeProperty ;
       rdfs:range xsd:dateTime .
@@ -191,6 +185,20 @@
                rdfs:subPropertyOf :date ;
                rdfs:comment "Date de création de la ressource"@fr ;
                rdfs:label "Date de création"@fr .
+
+
+###  http://www.semanticweb.org/pierre/ontologies/2025/5/code-civil-ontology//date_en_vigueur_debut
+:date_en_vigueur_debut rdf:type owl:DatatypeProperty ;
+                       rdfs:subPropertyOf :date ;
+                       rdfs:domain :ArticleVersion ;
+                       rdfs:range xsd:dateTime .
+
+
+###  http://www.semanticweb.org/pierre/ontologies/2025/5/code-civil-ontology//date_en_vigueur_fin
+:date_en_vigueur_fin rdf:type owl:DatatypeProperty ;
+                     rdfs:subPropertyOf :date ;
+                     rdfs:domain :ArticleVersion ;
+                     rdfs:range xsd:dateTime .
 
 
 ###  http://www.semanticweb.org/pierre/ontologies/2025/5/code-civil-ontology//date_modification
@@ -221,6 +229,14 @@
      rdfs:label "European Legislation Identifier (ELI)"@en .
 
 
+###  http://www.semanticweb.org/pierre/ontologies/2025/5/code-civil-ontology//texte_consolidé
+:texte_consolidé rdf:type owl:DatatypeProperty ;
+                 rdfs:domain :Article ;
+                 rdfs:range xsd:boolean ;
+                 rdfs:comment "La consolidation des textes consiste lorsqu'un article de texte (ou de code) est modifié, à le réécrire en y intégrant la modification apportée. Les versions modifiées ou abrogées sont présentes dans le fonds documentaire au même titre que les versions en vigueur." ;
+                 rdfs:label "Texte consolidé" .
+
+
 ###  http://www.semanticweb.org/pierre/ontologies/2025/5/code-civil-ontology//titre
 :titre rdf:type owl:DatatypeProperty ;
        rdfs:subPropertyOf owl:topDataProperty ;
@@ -243,14 +259,31 @@
 #    Classes
 #################################################################
 
-###  http://www.semanticweb.org/pierre/ontologies/2025/5/code-civil-ontology//Arrete
-:Arrete rdf:type owl:Class ;
-        rdfs:subClassOf :RessourceLegale .
+###  http://www.semanticweb.org/pierre/ontologies/2025/5/code-civil-ontology/TypeRessourceLegale
+:TypeRessourceLegale rdf:type owl:Class ;
+                     rdfs:subClassOf :Concept ;
+                     rdfs:comment """Le type de ressource légale(\"Code\", \"Loi\", \"Ordonnance\", etc...).
+
+L'ontologie ne spécifie pas toutes les types possibles. D'autre types peuvent être proposées.""" ;
+                     rdfs:label "Type de ressource légale" .
+
+
+###  http://www.semanticweb.org/pierre/ontologies/2025/5/code-civil-ontology/TypeSousPartie
+:TypeSousPartie rdf:type owl:Class ;
+                rdfs:subClassOf :Concept ;
+                rdfs:label "Type de sous-partie" .
 
 
 ###  http://www.semanticweb.org/pierre/ontologies/2025/5/code-civil-ontology//Article
 :Article rdf:type owl:Class ;
-         rdfs:subClassOf :SousPartieRessourceLegale ;
+         owl:equivalentClass [ owl:intersectionOf ( :SousPartieRessourceLegale
+                                                    [ rdf:type owl:Restriction ;
+                                                      owl:onProperty :type_sous_partie ;
+                                                      owl:hasValue :Article
+                                                    ]
+                                                  ) ;
+                               rdf:type owl:Class
+                             ] ;
          rdfs:comment "Un article est une prescription contenue dans un texte législatif." ;
          rdfs:label "Article" .
 
@@ -260,33 +293,8 @@
                 rdfs:subClassOf :SousPartieRessourceLegale .
 
 
-###  http://www.semanticweb.org/pierre/ontologies/2025/5/code-civil-ontology//Chapitre
-:Chapitre rdf:type owl:Class ;
-          rdfs:subClassOf :SousPartieRessourceLegale .
-
-
-###  http://www.semanticweb.org/pierre/ontologies/2025/5/code-civil-ontology//Circulaire
-:Circulaire rdf:type owl:Class ;
-            rdfs:subClassOf :RessourceLegale .
-
-
-###  http://www.semanticweb.org/pierre/ontologies/2025/5/code-civil-ontology//Code
-:Code rdf:type owl:Class ;
-      rdfs:subClassOf :RessourceLegale .
-
-
 ###  http://www.semanticweb.org/pierre/ontologies/2025/5/code-civil-ontology//Concept
 :Concept rdf:type owl:Class .
-
-
-###  http://www.semanticweb.org/pierre/ontologies/2025/5/code-civil-ontology//Decision
-:Decision rdf:type owl:Class ;
-          rdfs:subClassOf :RessourceLegale .
-
-
-###  http://www.semanticweb.org/pierre/ontologies/2025/5/code-civil-ontology//Decret
-:Decret rdf:type owl:Class ;
-        rdfs:subClassOf :RessourceLegale .
 
 
 ###  http://www.semanticweb.org/pierre/ontologies/2025/5/code-civil-ontology//Document
@@ -300,42 +308,25 @@
                                                    :EnVigueur
                                                  )
                                      ] ;
-                 rdfs:subClassOf :Concept .
-
-
-###  http://www.semanticweb.org/pierre/ontologies/2025/5/code-civil-ontology//Livre
-:Livre rdf:type owl:Class ;
-       rdfs:subClassOf :SousPartieRessourceLegale .
-
-
-###  http://www.semanticweb.org/pierre/ontologies/2025/5/code-civil-ontology//Loi
-:Loi rdf:type owl:Class ;
-     rdfs:subClassOf :RessourceLegale .
-
-
-###  http://www.semanticweb.org/pierre/ontologies/2025/5/code-civil-ontology//Ordonnance
-:Ordonnance rdf:type owl:Class ;
-            rdfs:subClassOf :RessourceLegale .
-
-
-###  http://www.semanticweb.org/pierre/ontologies/2025/5/code-civil-ontology//Paragraphe
-:Paragraphe rdf:type owl:Class ;
-            rdfs:subClassOf :SousPartieRessourceLegale .
+                 rdfs:subClassOf :Concept ;
+                 rdfs:label "Etat d'application" .
 
 
 ###  http://www.semanticweb.org/pierre/ontologies/2025/5/code-civil-ontology//PublicationOfficielle
 :PublicationOfficielle rdf:type owl:Class ;
-                       rdfs:subClassOf :RessourceLegale .
+                       owl:equivalentClass [ owl:intersectionOf ( :RessourceLegale
+                                                                  [ rdf:type owl:Restriction ;
+                                                                    owl:onProperty :type_ressource_legale ;
+                                                                    owl:hasValue :PublicationOfficielle
+                                                                  ]
+                                                                ) ;
+                                             rdf:type owl:Class
+                                           ] .
 
 
 ###  http://www.semanticweb.org/pierre/ontologies/2025/5/code-civil-ontology//RessourceLegale
 :RessourceLegale rdf:type owl:Class ;
                  rdfs:subClassOf :Document .
-
-
-###  http://www.semanticweb.org/pierre/ontologies/2025/5/code-civil-ontology//Section
-:Section rdf:type owl:Class ;
-         rdfs:subClassOf :SousPartieRessourceLegale .
 
 
 ###  http://www.semanticweb.org/pierre/ontologies/2025/5/code-civil-ontology//SousPartieDocument
@@ -349,18 +340,91 @@
                                            :SousPartieDocument .
 
 
-###  http://www.semanticweb.org/pierre/ontologies/2025/5/code-civil-ontology//Titre
-:Titre rdf:type owl:Class ;
-       rdfs:subClassOf :SousPartieRessourceLegale .
-
-
 #################################################################
 #    Individuals
 #################################################################
 
+###  http://www.semanticweb.org/pierre/ontologies/2025/5/code-civil-ontology/Arrete
+:Arrete rdf:type owl:NamedIndividual ,
+                 :TypeRessourceLegale ;
+        rdfs:label "Arrété" .
+
+
+###  http://www.semanticweb.org/pierre/ontologies/2025/5/code-civil-ontology/Article
+:Article rdf:type owl:NamedIndividual ,
+                  :TypeSousPartie .
+
+
+###  http://www.semanticweb.org/pierre/ontologies/2025/5/code-civil-ontology/Chapitre
+:Chapitre rdf:type owl:NamedIndividual ,
+                   :TypeSousPartie .
+
+
+###  http://www.semanticweb.org/pierre/ontologies/2025/5/code-civil-ontology/Circulaire
+:Circulaire rdf:type owl:NamedIndividual ,
+                     :TypeRessourceLegale ;
+            rdfs:label "Circulaire" .
+
+
+###  http://www.semanticweb.org/pierre/ontologies/2025/5/code-civil-ontology/Code
+:Code rdf:type owl:NamedIndividual ,
+               :TypeRessourceLegale ;
+      rdfs:label "Code" .
+
+
+###  http://www.semanticweb.org/pierre/ontologies/2025/5/code-civil-ontology/Decision
+:Decision rdf:type owl:NamedIndividual ,
+                   :TypeRessourceLegale ;
+          rdfs:label "Décision" .
+
+
+###  http://www.semanticweb.org/pierre/ontologies/2025/5/code-civil-ontology/Decret
+:Decret rdf:type owl:NamedIndividual ,
+                 :TypeRessourceLegale ;
+        rdfs:label "Décret" .
+
+
+###  http://www.semanticweb.org/pierre/ontologies/2025/5/code-civil-ontology/Livre
+:Livre rdf:type owl:NamedIndividual ,
+                :TypeSousPartie .
+
+
+###  http://www.semanticweb.org/pierre/ontologies/2025/5/code-civil-ontology/Loi
+:Loi rdf:type owl:NamedIndividual ,
+              :TypeRessourceLegale ;
+     rdfs:label "Loi" .
+
+
+###  http://www.semanticweb.org/pierre/ontologies/2025/5/code-civil-ontology/Ordonnance
+:Ordonnance rdf:type owl:NamedIndividual ,
+                     :TypeRessourceLegale ;
+            rdfs:label "Ordonnance" .
+
+
+###  http://www.semanticweb.org/pierre/ontologies/2025/5/code-civil-ontology/Paragraphe
+:Paragraphe rdf:type owl:NamedIndividual ,
+                     :TypeSousPartie .
+
+
+###  http://www.semanticweb.org/pierre/ontologies/2025/5/code-civil-ontology/PublicationOfficielle
+:PublicationOfficielle rdf:type owl:NamedIndividual ,
+                                :TypeRessourceLegale .
+
+
+###  http://www.semanticweb.org/pierre/ontologies/2025/5/code-civil-ontology/Section
+:Section rdf:type owl:NamedIndividual ,
+                  :TypeSousPartie .
+
+
+###  http://www.semanticweb.org/pierre/ontologies/2025/5/code-civil-ontology/Titre
+:Titre rdf:type owl:NamedIndividual ,
+                :TypeSousPartie .
+
+
 ###  http://www.semanticweb.org/pierre/ontologies/2025/5/code-civil-ontology//Abroge
 :Abroge rdf:type owl:NamedIndividual ,
-                 :EtatApplication .
+                 :EtatApplication ;
+        rdfs:label "Abrogé" .
 
 
 ###  http://www.semanticweb.org/pierre/ontologies/2025/5/code-civil-ontology//CCArt9-1
@@ -372,8 +436,8 @@
                    :CCArt9-1v1993-09-02 ,
                    :CCArt9-1v1994-07-30 ;
           :version_actuelle :CCArt9-1v2000-06-16 ;
-          :texte_consolidé "true"^^xsd:boolean ;
           :date_creation "1993-01-05T00:00:00"^^xsd:dateTime ;
+          :texte_consolidé "true"^^xsd:boolean ;
           :titre "Code civil, article 9-1" ;
           :titre_parties "Code civil, Livre Ier : Des personnes, Titre Ier : Des droits civils, Article 9-1" ;
           :url_legifrance "https://www.legifrance.gouv.fr/codes/article_lc/LEGIARTI000006419316" .
@@ -424,7 +488,7 @@ Lorsqu’une personne est, avant toute condamnation, présentée publiquement co
 
 ###  http://www.semanticweb.org/pierre/ontologies/2025/5/code-civil-ontology//CCLivreIerDesPersonnes
 :CCLivreIerDesPersonnes rdf:type owl:NamedIndividual ,
-                                 :Livre ;
+                                 :SousPartieRessourceLegale ;
                         :has_part :CCTitreIerDesDroitsCivils ;
                         :titre "Code Civil, Livre Ier : Des personnes (Articles 7 à 515-13-1)" ;
                         :url_legifrance "https://www.legifrance.gouv.fr/codes/section_lc/LEGITEXT000006070721/LEGISCTA000006089697/#LEGISCTA000006089697" .
@@ -432,7 +496,7 @@ Lorsqu’une personne est, avant toute condamnation, présentée publiquement co
 
 ###  http://www.semanticweb.org/pierre/ontologies/2025/5/code-civil-ontology//CCTitreIerDesDroitsCivils
 :CCTitreIerDesDroitsCivils rdf:type owl:NamedIndividual ,
-                                    :Titre ;
+                                    :SousPartieRessourceLegale ;
                            :has_part :CCArt9-1 ;
                            :titre "Code Civil, Titre Ier : Des droits civils (Articles 7 à 16-14)" ;
                            :url_legifrance "https://www.legifrance.gouv.fr/codes/section_lc/LEGITEXT000006070721/LEGISCTA000006117610/#LEGISCTA000006117610" .
@@ -440,7 +504,8 @@ Lorsqu’une personne est, avant toute condamnation, présentée publiquement co
 
 ###  http://www.semanticweb.org/pierre/ontologies/2025/5/code-civil-ontology//CodeCivil
 :CodeCivil rdf:type owl:NamedIndividual ,
-                    :Code ;
+                    :RessourceLegale ;
+           :type_ressource_legale :Code ;
            :etat_application :EnVigueur ;
            :has_part :CCLivreIerDesPersonnes ;
            :titre "Code civil" ;
@@ -449,7 +514,8 @@ Lorsqu’une personne est, avant toute condamnation, présentée publiquement co
 
 ###  http://www.semanticweb.org/pierre/ontologies/2025/5/code-civil-ontology//EnVigueur
 :EnVigueur rdf:type owl:NamedIndividual ,
-                    :EtatApplication .
+                    :EtatApplication ;
+           rdfs:label "En vigueur" .
 
 
 ###  http://www.semanticweb.org/pierre/ontologies/2025/5/code-civil-ontology//FicheDroitALImage
@@ -468,7 +534,8 @@ Lorsqu’une personne est, avant toute condamnation, présentée publiquement co
 
 ###  http://www.semanticweb.org/pierre/ontologies/2025/5/code-civil-ontology//Loi2000-516
 :Loi2000-516 rdf:type owl:NamedIndividual ,
-                      :Loi ;
+                      :RessourceLegale ;
+             :type_ressource_legale :Loi ;
              :titre "Loi n° 2000-516 du 15 juin 2000 renforçant la protection de la présomption d'innocence et les droits des victimes" ;
              :url_legifrance "https://www.legifrance.gouv.fr/loda/id/JORFTEXT000000765204/" .
 
@@ -487,7 +554,9 @@ Lorsqu’une personne est, avant toute condamnation, présentée publiquement co
 
 
 ###  http://www.semanticweb.org/pierre/ontologies/2025/5/code-civil-ontology//Ord96-267Art3
-:Ord96-267Art3 rdf:type owl:NamedIndividual ;
+:Ord96-267Art3 rdf:type owl:NamedIndividual ,
+                        :RessourceLegale ;
+               :type_ressource_legale :Ordonnance ;
                :cite :CCArt9-1 ;
                :description """Pour son application dans les territoires d'outre-mer et à Mayotte, l'article 9-1 du code civil est ainsi rédigé :
 
@@ -498,34 +567,6 @@ Chacun a droit au respect de la présomption d'innocence.
 \" Lorsqu'une personne placée en garde à vue, mise en examen ou faisant l'objet d'une citation à comparaître en justice, d'un réquisitoire du procureur de la République ou d'une plainte avec constitution de partie civile, est, avant toute condamnation, présentée publiquement comme étant coupable de faits faisant l'objet de l'enquête ou de l'instruction judiciaire, le juge peut ordonner l'insertion dans la publication concernée d'un communiqué aux fins de faire cesser l'atteinte à la présomption d'innocence, sans préjudice d'une action en réparation des dommages subis et des autres mesures qui peuvent être prescrites en vertu des règles de procédure civile applicables localement et ce, aux frais de la personne, physique ou morale, responsable de l'atteinte à la présomption d'innocence. \"""" ;
                :titre "Ordonnance n°96-267 du 28 mars 1996 - art. 3 (V)" ;
                :url_legifrance "https://www.legifrance.gouv.fr/loda/id/LEGIARTI000006495402/#LEGIARTI000006495402" .
-
-
-#################################################################
-#    General axioms
-#################################################################
-
-[ rdf:type owl:AllDisjointClasses ;
-  owl:members ( :Arrete
-                :Circulaire
-                :Code
-                :Decision
-                :Decret
-                :Loi
-                :Ordonnance
-                :PublicationOfficielle
-              )
-] .
-
-
-[ rdf:type owl:AllDisjointClasses ;
-  owl:members ( :Article
-                :Chapitre
-                :Livre
-                :Paragraphe
-                :Section
-                :Titre
-              )
-] .
 
 
 ###  Generated by the OWL API (version 4.5.29.2024-05-13T12:11:03Z) https://github.com/owlcs/owlapi
