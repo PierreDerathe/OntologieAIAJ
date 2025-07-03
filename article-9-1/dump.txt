@@ -132,3 +132,6 @@ L'ontologie ne spécifie pas toutes les types possibles. D'autre types peuvent �
 Une valeur indiquant si une ressource légale est en application. Ces valeurs sont:
 - en vigueur
 - abrogé
+
+CamelCase pour les convenances de URI
+Changer les URI en anglais(99% des KG sont en anglais)

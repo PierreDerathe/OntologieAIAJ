@@ -94,13 +94,17 @@ Un choix encore en attente est où placer ArticleVersion dans la taxonomie. Est-
 
 ### Limiter le nombre de classe
 
-[Ontologie 101](/ressources/ontology101.pdf) propose des guidelines pour quand introduire des nouvelles classes. Les sous-classes d'une classe ont généralement:
+[Ontology 101](/ressources/ontology101.pdf) propose des guidelines pour quand introduire des nouvelles classes. Les sous-classes d'une classe ont généralement:
 
 - des propriétés additionnelles
 - des restrictions supplémentaires
 - participe à des retations différentes
 
 Dans l'ontologie, sauf certaines classes(PublicationOfficielle, Article), un certain nombre de classe n'ont, pour l'instant pas des caractéristiques pariculières(Loi, Décret, Chapitre, Paragraphe...).
+
+Attention, ce choix peut-être discutable, d'après ontology 101:
+
+    Another  reason  to  introduce  new  classes  without  any  new  properties  is  to  model  concepts among  which  domain experts commonly make a  distinction even though we  may have decided not to model the distinction itself.
 
 Je crée donc 2 classes génériques TypeRessourceLegale et TypeSousPartie avec les relations et les instances pour distinguer les différents types de ressource légale et de sous-partie sans caractéristique pariculière.
 
