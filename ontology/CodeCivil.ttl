@@ -12,6 +12,14 @@
 <http://www.semanticweb.org/pierre/ontologies/2025/5/code-civil-ontology/> rdf:type owl:Ontology .
 
 #################################################################
+#    Datatypes
+#################################################################
+
+###  http://www.w3.org/2001/XMLSchema#date
+xsd:date rdf:type rdfs:Datatype .
+
+
+#################################################################
 #    Object Properties
 #################################################################
 
@@ -195,39 +203,42 @@
 
 ###  http://www.semanticweb.org/pierre/ontologies/2025/5/code-civil-ontology//date
 :date rdf:type owl:DatatypeProperty ;
-      rdfs:range xsd:dateTime .
+      rdfs:range xsd:date .
 
 
 ###  http://www.semanticweb.org/pierre/ontologies/2025/5/code-civil-ontology//date_abrogation
 :date_abrogation rdf:type owl:DatatypeProperty ;
                  rdfs:subPropertyOf :date ;
-                 rdfs:domain :LegalResource .
+                 rdfs:domain :LegalResource ;
+                 rdfs:range xsd:date .
 
 
 ###  http://www.semanticweb.org/pierre/ontologies/2025/5/code-civil-ontology//date_creation
 :date_creation rdf:type owl:DatatypeProperty ;
                rdfs:subPropertyOf :date ;
+               rdfs:range xsd:date ;
                rdfs:comment "Date de création de la ressource"@fr ;
                rdfs:label "Date de création"@fr .
 
 
-###  http://www.semanticweb.org/pierre/ontologies/2025/5/code-civil-ontology//date_en_vigueur_debut
-:date_en_vigueur_debut rdf:type owl:DatatypeProperty ;
-                       rdfs:subPropertyOf :date ;
-                       rdfs:domain :ArticleVersion ;
-                       rdfs:range xsd:dateTime .
+###  http://www.semanticweb.org/pierre/ontologies/2025/5/code-civil-ontology//date_debut_application
+:date_debut_application rdf:type owl:DatatypeProperty ;
+                        rdfs:subPropertyOf :date ;
+                        rdfs:domain :ArticleVersion ;
+                        rdfs:range xsd:date .
 
 
-###  http://www.semanticweb.org/pierre/ontologies/2025/5/code-civil-ontology//date_en_vigueur_fin
-:date_en_vigueur_fin rdf:type owl:DatatypeProperty ;
-                     rdfs:subPropertyOf :date ;
-                     rdfs:domain :ArticleVersion ;
-                     rdfs:range xsd:dateTime .
+###  http://www.semanticweb.org/pierre/ontologies/2025/5/code-civil-ontology//date_fin_application
+:date_fin_application rdf:type owl:DatatypeProperty ;
+                      rdfs:subPropertyOf :date ;
+                      rdfs:domain :ArticleVersion ;
+                      rdfs:range xsd:date .
 
 
 ###  http://www.semanticweb.org/pierre/ontologies/2025/5/code-civil-ontology//date_modification
 :date_modification rdf:type owl:DatatypeProperty ;
-                   rdfs:subPropertyOf :date .
+                   rdfs:subPropertyOf :date ;
+                   rdfs:range xsd:date .
 
 
 ###  http://www.semanticweb.org/pierre/ontologies/2025/5/code-civil-ontology//description
@@ -391,7 +402,7 @@ L'ontologie ne spécifie pas toutes les types possibles. D'autre types peuvent �
                    :CCArt9-1v1993-09-02 ,
                    :CCArt9-1v1994-07-30 ;
           :version_actuelle :CCArt9-1v2000-06-16 ;
-          :date_creation "1993-01-05T00:00:00"^^xsd:dateTime ;
+          :date_creation "1993-01-05"^^xsd:date ;
           :texte_consolidé "true"^^xsd:boolean ;
           :titre "Code civil, article 9-1" ;
           :titre_parties "Code civil, Livre Ier : Des personnes, Titre Ier : Des droits civils, Article 9-1" ;
@@ -402,8 +413,8 @@ L'ontologie ne spécifie pas toutes les types possibles. D'autre types peuvent �
 :CCArt9-1v1993-01-05 rdf:type owl:NamedIndividual ,
                               :Article ,
                               :ArticleVersion ;
-                     :date_en_vigueur_debut "1993-01-05T00:00:00"^^xsd:dateTime ;
-                     :date_en_vigueur_fin "1993-09-02T00:00:00"^^xsd:dateTime ;
+                     :date_debut_application "1993-01-05"^^xsd:date ;
+                     :date_fin_application "1993-09-02"^^xsd:date ;
                      :description """Chacun a droit au respect de la présomption d'innocence.
 
 Lorsqu'une personne est, avant toute condamnation, présentée publiquement comme étant coupable de faits faisant l'objet d'une enquête ou d'une instruction judiciaire, le juge peut, même en référé, ordonner l'insertion d'une rectification ou la diffusion d'un communiqué aux fins de faire cesser l'atteinte à la présomption d'innocence, sans préjudice d'une action en réparation des dommages subis et des autres mesures qui peuvent être prescrites en application du nouveau code de procédure civile et ce, aux frais de la personne, physique ou morale, responsable de l'atteinte à la présomption d'innocence.""" ;
@@ -414,16 +425,16 @@ Lorsqu'une personne est, avant toute condamnation, présentée publiquement comm
 :CCArt9-1v1993-09-02 rdf:type owl:NamedIndividual ,
                               :Article ,
                               :ArticleVersion ;
-                     :date_en_vigueur_debut "1993-09-02T00:00:00"^^xsd:dateTime ;
-                     :date_en_vigueur_fin "1994-07-30T00:00:00"^^xsd:dateTime .
+                     :date_debut_application "1993-09-02"^^xsd:date ;
+                     :date_fin_application "1994-07-30"^^xsd:date .
 
 
 ###  http://www.semanticweb.org/pierre/ontologies/2025/5/code-civil-ontology//CCArt9-1v1994-07-30
 :CCArt9-1v1994-07-30 rdf:type owl:NamedIndividual ,
                               :Article ,
                               :ArticleVersion ;
-                     :date_en_vigueur_debut "1994-07-30T00:00:00"^^xsd:dateTime ;
-                     :date_en_vigueur_fin "2000-06-16T00:00:00"^^xsd:dateTime ;
+                     :date_debut_application "1994-07-30"^^xsd:date ;
+                     :date_fin_application "2000-06-16"^^xsd:date ;
                      :description """Chacun a droit au respect de la présomption d'innocence.
 
 Lorsqu'une personne placée en garde à vue, mise en examen ou faisant l'objet d'une citation à comparaître en justice, d'un réquisitoire du procureur de la République ou d'une plainte avec constitution de partie civile, est, avant toute condamnation, présentée publiquement comme étant coupable de faits faisant l'objet de l'enquête ou de l'instruction judiciaire, le juge peut, même en référé, ordonner l'insertion dans la publication concernée d'un communiqué aux fins de faire cesser l'atteinte à la présomption d'innocence, sans préjudice d'une action en réparation des dommages subis et des autres mesures qui peuvent être prescrites en application du nouveau code de procédure civile et ce, aux frais de la personne, physique ou morale, responsable de l'atteinte à la présomption d'innocence.""" ;
@@ -434,7 +445,7 @@ Lorsqu'une personne placée en garde à vue, mise en examen ou faisant l'objet d
 :CCArt9-1v2000-06-16 rdf:type owl:NamedIndividual ,
                               :Article ,
                               :ArticleVersion ;
-                     :date_en_vigueur_debut "2000-06-16T00:00:00"^^xsd:dateTime ;
+                     :date_debut_application "2000-06-16"^^xsd:date ;
                      :description """Chacun a droit au respect de la présomption d'innocence.
 
 Lorsqu’une personne est, avant toute condamnation, présentée publiquement comme coupable de faits faisant l’objet d’une enquête ou d’une instruction judiciaire, le juge peut, même en référé, sans préjudice de la réparation du dommage subi, prescrire toutes mesures, telles que l’insertion d’une rectification ou la diffusion d’un communiqué, aux fins de faire cesser l’atteinte à la présomption d’innocence, et ce aux frais de la personne, physique ou morale, responsable de cette atteinte.""" ;
